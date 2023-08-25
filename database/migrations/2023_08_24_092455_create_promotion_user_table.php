@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('promotion_id');
             $table->unsignedBigInteger('user_id');
 
-            $table->date('start_date');
-            $table->date('end_date');
+            // $table->date('start_date');
+            // $table->date('end_date');
 
 
             $table->foreign('promotion_id')->references('id')->on('promotions');

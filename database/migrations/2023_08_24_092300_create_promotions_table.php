@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('name', 30);
             $table->string('description');
-            $table->time('time');
+            $table->integer('time');
             $table->decimal('price');
             
 

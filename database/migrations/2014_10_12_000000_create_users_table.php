@@ -22,17 +22,18 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('address');
-            $table->tinyInteger('telephone');
-            $table->string('curriculum');
+            $table->integer('telephone');
+            $table->string('curriculum-vitae');
             $table->string('image');
             $table->string('performance');
-            $table->integer('promotion_counter');
+            $table->string('promotion_counter');
 
             $table->softDeletes();
 
 
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
