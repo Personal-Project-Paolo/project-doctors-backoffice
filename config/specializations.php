@@ -44,5 +44,29 @@ return[
     ],
     [
         "name" => "Medicina di base",
-    ]
+    ],
+    [
+        "name" => "Diagnostica",
+    ],
+    [
+        "name" => "Infettologia",
+    ],
+    [
+        "name" => "Nefrologia",
+    ],
+    [
+        "name" => "Oncologia",
+    ],
+    [
+        "name" => "Immunologia",
+    ],
+    [
+        "name" => "Terapia Intensiva",
+    ],
+    [
+        "name" => "Chirurgia Plastica",
+    ],
+    [
+        "name" => "Medicina Interna",
+    ],
 ];
