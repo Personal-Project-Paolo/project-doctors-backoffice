@@ -22,8 +22,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+           
             PromotionsTableSeeder::class,
+            SpecializationsTableSeeder::class,
             UsersTableSeeder::class,
+           
 
         ]);
     }

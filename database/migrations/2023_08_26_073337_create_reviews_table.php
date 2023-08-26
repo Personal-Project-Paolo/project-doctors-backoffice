@@ -13,17 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promotion_user', function (Blueprint $table) {
-            $table->unsignedBigInteger('promotion_id');
+        Schema::create('reviews', function (Blueprint $table) {
+            $table->id();
+
             $table->unsignedBigInteger('user_id');
+            $table->tinyInteger('valutation');
+            $table->string('name');
+            $table->text('review', 5000);
 
-            // $table->date('start_date');
-            // $table->date('end_date');
+            $table->softDeletes();
 
+            $table->timestamps();
 
-            $table->foreign('promotion_id')->references('id')->on('promotions');
             $table->foreign('user_id')->references('id')->on('users');
-            
         });
     }
 
@@ -34,6 +36,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotion_user');
+        Schema::table('reviews', function(Blueprint $table){
+            $table->dropForeign('reviews_user_id_foreign');
+            $table->dropColumn(('users_id'));
+        });
+        Schema::dropIfExists('reviews');
     }
 };

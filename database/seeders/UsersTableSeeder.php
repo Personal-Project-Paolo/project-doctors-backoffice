@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder
                 
             ]);
             $user->promotions()->sync($arrUsers['promotions']);
-           
+            $user->specializations()->sync($arrUsers['specializations']);
         }
         
     }
