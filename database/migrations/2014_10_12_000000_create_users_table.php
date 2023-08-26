@@ -20,13 +20,13 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('name');
-            $table->string('lastname', 255);
-            $table->string('address');
-            $table->integer('telephone');
-            $table->string('curriculum-vitae');
-            $table->string('image');
-            $table->string('performance');
-            $table->string('promotion_counter');
+            $table->string('lastname');
+            $table->string('address')->default(0);
+            $table->integer('telephone')->default(0);
+            $table->string('curriculum-vitae')->nullable();
+            $table->string('image')->nullable();
+            $table->string('performance')->default(0);
+            $table->string('promotion_counter')->default(0);
 
             $table->softDeletes();
 
