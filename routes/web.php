@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 /*
@@ -31,17 +32,21 @@ use App\Http\Controllers\Guest\PageController as GuestPageController;
 
 Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
+Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
+
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-            Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
+
+
+            Route::resource('users', UserController::class);
             Route::resource('reviews', ReviewController::class);
             Route::resource('categories', MessageController::class);
 });
 
 Route::middleware('auth')
-    ->name('admin')
+    ->name('admin.')
     ->prefix('admin')
     ->group(function () {
             Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
