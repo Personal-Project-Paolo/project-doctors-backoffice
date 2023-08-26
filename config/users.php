@@ -3,7 +3,7 @@
 return [
     [
         "email" => "pinco.pallino@mail.com",
-        "password" => "111112",
+        "password" => "11111233",
         "name" => "Pinco",
         "lastname" => "Pallino",
         "address" => "Via numero 1 - Città 1",
@@ -16,7 +16,7 @@ return [
     ],
     [
         "email" => "franco.pallino@mail.com",
-        "password" => "222223",
+        "password" => "22222333",
         "name" => "Franco",
         "lastname" => "Pallino",
         "address" => "Via numero 2 - Città 2",
@@ -29,7 +29,7 @@ return [
     ],
     [
         "email" => "pasquale.pallino@mail.com",
-        "password" => "333334",
+        "password" => "33333433",
         "name" => "Pasquale",
         "lastname" => "Pallino",
         "address" => "Via numero 3 - Città 3",
