@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('promotions', 'specializations')->paginate(1);
+        $users = User::with('promotions', 'specializations')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -35,4 +35,3 @@ class UserController extends Controller
         //
     }
 }
-    
