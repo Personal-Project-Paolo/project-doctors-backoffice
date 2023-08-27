@@ -14,7 +14,7 @@ class Message extends Model
 
     public $timestamps = false;
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

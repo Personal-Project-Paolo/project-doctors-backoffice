@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('promotions', 'specializations', 'reviews', 'messages')::all();
+        $users = User::with('promotions', 'specializations')->paginate(1);
 
         return response()->json([
             'success' => true,

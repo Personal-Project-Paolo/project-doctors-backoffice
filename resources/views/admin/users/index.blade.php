@@ -1,8 +1,6 @@
 <x-app-layout>
     @section('contents')
-    <x-app-layout>
-        @section ('contents')
-        
+   
             <div class="dark:text-gray-100">
                 <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Doctors</h2>
 
@@ -62,8 +60,6 @@
                 {{-- <div class="my-4">
                     {{ $users->links('vendor.pagination.tailwind') }}
                 </div> --}}
-            </div>
-        @endsection
-    </x-app-layout>
+            </div> 
     @endsection
 </x-app-layout>
