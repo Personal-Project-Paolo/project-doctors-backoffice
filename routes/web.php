@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 /*
@@ -42,7 +43,7 @@ Route::middleware(['auth', 'verified'])
 
             Route::resource('users', UserController::class);
             Route::resource('reviews', ReviewController::class);
-            Route::resource('categories', MessageController::class);
+            Route::resource('messages', MessageController::class);
 });
 
 Route::middleware('auth')
