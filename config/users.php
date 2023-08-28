@@ -1,18 +1,13 @@
 <?php
 
 return [
-    [
+    [   
         "email" => "jd@mail.com",
         "password" => "11111111",
         "name" => "John Michael",
         "lastname" => "Dorian",
         "address" => "Via numero 1 - Città 1",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/JD.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [3],
+
         "specializations" => [23],
     ],
     [
@@ -21,12 +16,7 @@ return [
         "name" => "Gregory",
         "lastname" => "House",
         "address" => "Via numero 2 - Città 2",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Dr-House.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [3],
+        
         "specializations" => [16, 17, 18],
     ],
     [
@@ -35,12 +25,7 @@ return [
         "name" => "James",
         "lastname" => "Wilson",
         "address" => "Via numero 3 - Città 3",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/James-WIlson.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [19],
     ],
     [
@@ -49,12 +34,7 @@ return [
         "name" => "Eric",
         "lastname" => "Foreman",
         "address" => "Via numero 4 - Città 4",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Eric-Foreman.jpeg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [1],
+        
         "specializations" => [16, 20],
     ],
     [
@@ -63,12 +43,7 @@ return [
         "name" => "Martha",
         "lastname" => "Masters",
         "address" => "Via numero 5 - Città 5",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Masters.jpeg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [16, 14],
     ],
     [
@@ -77,12 +52,7 @@ return [
         "name" => "Robert",
         "lastname" => "Chase",
         "address" => "Via numero 6 - Città 6",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Robert-Chase.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [1],
+       
         "specializations" => [14, 16, 21],
     ],
     [
@@ -91,12 +61,7 @@ return [
         "name" => "Allison",
         "lastname" => "Cameron",
         "address" => "Via numero 7 - Città 7",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Cameron.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [16, 20],
     ],
     [
@@ -105,12 +70,7 @@ return [
         "name" => "Tredici",
         "lastname" => "",
         "address" => "Via numero 8 - Città 8",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/13.jpeg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [1],
+        
         "specializations" => [16, 23],
     ],
     [
@@ -119,12 +79,7 @@ return [
         "name" => "Chris",
         "lastname" => "Taub",
         "address" => "Via numero 9 - Città 9",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Taub.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [3],
+        
         "specializations" => [16, 22],
     ],
     [
@@ -133,12 +88,7 @@ return [
         "name" => "Lawrence",
         "lastname" => "Kutner",
         "address" => "Via numero 10 - Città 10",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Kutner.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [2],
     ],
     [
@@ -147,12 +97,7 @@ return [
         "name" => "Elliot",
         "lastname" => "Reid",
         "address" => "Via numero 11 - Città 11",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Elliot-Reid.jpeg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [1],
+        
         "specializations" => [4, 15],
     ],
     [
@@ -161,12 +106,7 @@ return [
         "name" => "Christopher Duncan",
         "lastname" => "Turk",
         "address" => "Via numero 12 - Città 12",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Christopher-Duncan-Turk.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [3],
+        
         "specializations" => [14, 1],
     ],
     [
@@ -175,12 +115,7 @@ return [
         "name" => "Percival Ulysses",
         "lastname" => "Cox",
         "address" => "Via numero 13 - Città 13",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Cox.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [15, 7],
     ],
     [
@@ -189,12 +124,7 @@ return [
         "name" => "Robert",
         "lastname" => "Kelso",
         "address" => "Via numero 14 - Città 14",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Robert-Kelso.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [3],
+        
         "specializations" => [10, 17],
     ],
     [
@@ -203,12 +133,7 @@ return [
         "name" => "Todd",
         "lastname" => "Quinlan",
         "address" => "Via numero 15 - Città 15",
-        "telephone" => "1234567890",
-        "curriculum-vitae" => "",
-        "image" => "public/img_doctors/Tood.jpg",
-        "performance" => "",
-        "promotion_counter" => "",
-        "promotions" => [2],
+        
         "specializations" => [10, 13, 17],
     ],
 ];

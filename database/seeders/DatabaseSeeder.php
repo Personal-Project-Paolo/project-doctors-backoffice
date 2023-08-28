@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             PromotionsTableSeeder::class,
             SpecializationsTableSeeder::class,
             UsersTableSeeder::class,
+            DoctorsTableSeeder::class,
            
 
         ]);

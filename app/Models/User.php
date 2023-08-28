@@ -3,9 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Models\Review;
-use App\Models\Message;
-use App\Models\Promotion;
+
+use App\Models\Doctor;
 use App\Models\Specialization;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -25,11 +24,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+
+        'email',
+        'password',
         'name',
         'lastname',
         'address',
-        'email',
-        'password',
+       
     ];
 
     /**
@@ -51,9 +52,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function promotions()
+    public function doctor()
     {
-        return $this->belongsToMany(Promotion::class);
+        return $this->hasOne(Doctor::class);
     }
 
     public function specializations()
@@ -61,13 +62,5 @@ class User extends Authenticatable
         return $this->belongsToMany(Specialization::class);
     }
 
-    public function messages()
-    {
-        return $this->hasMany(Message::class);
-    }
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class);
-    }
 }

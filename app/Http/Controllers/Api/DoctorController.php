@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
 
-class UserController extends Controller
+use App\Models\Doctor;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('promotions', 'specializations')->paginate(5);
+        $doctors = Doctor::with('promotions', 'specializations')->paginate(5);
 
         return response()->json([
             'success' => true,
-            'results' => $users,
+            'results' => $doctors,
         ]);
     }
 

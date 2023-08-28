@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('promotion_user', function (Blueprint $table) {
+        Schema::create('doctor_promotion', function (Blueprint $table) {
             $table->unsignedBigInteger('promotion_id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('doctor_id');
 
             // $table->date('start_date');
             // $table->date('end_date');
 
 
             $table->foreign('promotion_id')->references('id')->on('promotions');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promotion_user');
+        Schema::dropIfExists('doctor_promotion');
     }
 };
