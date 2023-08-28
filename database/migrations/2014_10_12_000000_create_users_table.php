@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('name');
             $table->string('lastname');
-            $table->string('address')->default(0);
+            $table->string('address');
             $table->integer('telephone')->default(0);
             $table->string('curriculum-vitae')->nullable();
             $table->string('image')->nullable();
