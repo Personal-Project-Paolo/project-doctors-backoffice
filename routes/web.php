@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 /*
@@ -16,19 +17,7 @@ use App\Http\Controllers\Guest\PageController as GuestPageController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
 
 Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
@@ -42,7 +31,7 @@ Route::middleware(['auth', 'verified'])
 
             Route::resource('users', UserController::class);
             Route::resource('reviews', ReviewController::class);
-            Route::resource('categories', MessageController::class);
+            Route::resource('messages', MessageController::class);
 });
 
 Route::middleware('auth')

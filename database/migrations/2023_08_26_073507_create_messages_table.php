@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email', 40);
             $table->text('text', 5000);
 
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
