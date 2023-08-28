@@ -18,23 +18,23 @@
                     </tr>
                 </thead>
                 <tbody class="border-b dark:bg-gray-900 dark:border-gray-700">
-                    @foreach ($messages as $message)
+                    {{-- @foreach ($messages as $message) --}}
                         <tr>
                             <td class="px-2 py-2">
-                                <p>{{ $message->id }}</p>
+                                {{-- <p>{{ $message->id }}</p> --}}
                             </td>
                             <td class="px-2 py-2">
                                 {{-- <p>{{ $message->email }}</p> --}}
                                 
                                 {{-- ho messo il link come promemoria per proporre l'indirizzamento diretto alla pagina del medico per la risposta  --}}
-                                <p><a href="#">{{ $message->email }}</a></p>
+                                {{-- <p><a href="#">{{ $message->email }}</a></p> --}}
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $message->text }}</p>
+                                {{-- <p>{{ $message->text }}</p> --}}
                             </td>
                            
                         </tr>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </tbody>
             </table>
         </div>

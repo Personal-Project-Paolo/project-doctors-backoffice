@@ -16,7 +16,7 @@ class MessageController extends Controller
     public function index()
     {
          $reviews = Message::all();
-        return view('admin.messages.index', compact('messages'));
+        return view('admin.messages.index');
     }
 
     /**
