@@ -19,19 +19,19 @@
                     </tr>
                 </thead>
                 <tbody class="border-b dark:bg-gray-900 dark:border-gray-700">
-                    @foreach ($reviews as $rewie)
+                    @foreach ($reviews as $review)
                         <tr>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->id }}</p>
+                                <p>{{ $review->id }}</p>
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->valutation }}</p>
+                                <p>{{ $review->valutation }}</p>
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->name }}</p>
+                                <p>{{ $review->name }}</p>
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->review }}</p>
+                                <p>{{ $review->review }}</p>
                             </td>
                         </tr>
                     @endforeach

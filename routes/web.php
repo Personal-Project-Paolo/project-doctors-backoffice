@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
@@ -30,12 +31,10 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-
-
             Route::resource('doctors', DoctorController::class);
-            Route::resource('users', UserController::class);
+            Route::resource('users',   UserController::class);
             Route::resource('reviews', ReviewController::class);
-            Route::resource('messages', MessageController::class);
+            Route::resource('messages',MessageController::class);
 });
 
 Route::middleware('auth')
