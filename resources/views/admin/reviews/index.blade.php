@@ -13,8 +13,8 @@
                 </colgroup>
                 <thead>
                     <tr class="dark:bg-gray-700">
-                        <th class="p-2">Voto</th>
                         <th class="p-2">Nome</th>
+                        <th class="p-2">Voto</th>
                         <th class="p-2">Testo</th> 
                     </tr>
                 </thead>
@@ -22,13 +22,10 @@
                     @foreach ($reviews as $review)
                         <tr>
                             <td class="px-2 py-2">
-                                <p>{{ $review->id }}</p>
+                                <p>{{ $review->name }}</p>
                             </td>
                             <td class="px-2 py-2">
                                 <p>{{ $review->valutation }}</p>
-                            </td>
-                            <td class="px-2 py-2">
-                                <p>{{ $review->name }}</p>
                             </td>
                             <td class="px-2 py-2">
                                 <p>{{ $review->review }}</p>
