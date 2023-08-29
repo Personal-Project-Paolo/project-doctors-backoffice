@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,8 +16,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-         $reviews = Message::all();
-        return view('admin.messages.index');
+        $messages = Message::with('user')->where('user_id', Auth::user()->id)->latest()->get();
+        return view('admin.messages.index', compact('messages'));
     }
 
     /**
