@@ -27,8 +27,7 @@ class DatabaseSeeder extends Seeder
             SpecializationsTableSeeder::class,
             UsersTableSeeder::class,
             DoctorsTableSeeder::class,
-           
-
+        
         ]);
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Guest\PageController as GuestPageController;
 
 Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
+
 Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])
@@ -36,6 +38,11 @@ Route::middleware(['auth', 'verified'])
             Route::resource('users', UserController::class);
             Route::resource('reviews', ReviewController::class);
             Route::resource('messages', MessageController::class);
+            Route::resource('dashboard',DashboardController::class);
+            
+            // rotta per visualizzare il curriculum
+            Route::get('/doctors/{id}/curriculum', [DoctorController::class, 'showCurriculum'])->name('doctors.showCurriculum');
+
 });
 
 Route::middleware('auth')

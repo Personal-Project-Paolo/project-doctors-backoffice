@@ -18,17 +18,17 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
 
             
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('address');
-            $table->integer('telephone')->default(0);
-            $table->string('curriculum-vitae')->nullable();
+            // $table->string('email')->unique();
+            // $table->timestamp('email_verified_at')->nullable();
+            // $table->string('password');
+            // $table->string('name');
+            // $table->string('lastname');
+            // $table->string('address');
+            $table->string('telephone');
+            $table->string('curriculum_vitae')->nullable();
             $table->string('image')->nullable();
-            $table->string('performance')->default(0);
-            $table->string('promotion_counter')->default(0);
+            $table->string('performance');
+            $table->string('promotion_counter')->nullable();
 
             $table->softDeletes();
 
@@ -51,7 +51,5 @@ return new class extends Migration
             $table->dropForeign('doctors_user_id_foreign');
             $table->dropColumn('user_id');
         });
-
-        Schema::dropIfExists('doctors');
     }
 };

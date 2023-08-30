@@ -4,7 +4,6 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Promotion;
-use App\Models\Specialization;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,10 +19,10 @@ class Doctor extends Model
         return $this->belongsTo(User::class);
     }
     
-    public function specializations()
-    {
-        return $this->belongsToMany(Specialization::class);
-    }
+    // public function specializations()
+    // {
+    //     return $this->belongsToMany(Specialization::class);
+    // }
     
     public function promotions()
     {
@@ -40,7 +39,19 @@ class Doctor extends Model
         return $this->hasMany(Review::class);
     }
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($doctor) {
+            if (!$doctor->user_id) {
+                $doctor->user_id = auth()->user()->id;
+            }
+        });
+    }
+
 }
+
 
 
 

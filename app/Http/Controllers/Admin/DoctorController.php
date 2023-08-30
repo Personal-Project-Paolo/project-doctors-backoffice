@@ -5,84 +5,148 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Promotion;
+use App\Models\Specialization;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+{   
+
+    // Validazioni per validare i dati
+    private $validations = [
+        'telephone'         => 'required',
+        'curriculum_vitae'  => 'required|file|mimes:pdf,docx',
+        'performance'       => 'required',
+        'image'             => 'required|image|mimes:jpeg,png,jpg,gif|max:10800',
+    ];
+
+    //messaggio che ti esce nel momento in cui il campo non è stato commpilato
+    private $validations_messages = [
+        'required' => 'il campo :attribute è obbligatorio'
+    ];
+   
     public function index()
     {
         $doctors = Doctor::All();
 
         return view('admin.doctors.index', compact('doctors'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
-    {
-        //
+    {   
+        $specializations = Specialization::All();
+        $promotions = Promotion::All();
+        return view('admin.doctors.create', compact('specializations', 'promotions'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
-    {
-        //
+    {   
+        $data = $request->validate($this->validations, $this->validations_messages);
+        $data = $request->all();
+
+
+        $newDoctor = new Doctor();
+
+        $newDoctor->user_id = auth()->user()->id; 
+
+        $newDoctor->telephone = $data['telephone'];
+
+        if ($request->hasFile('curriculum_vitae')) {
+            $curriculumVitae = $request->file('curriculum_vitae');
+            $curriculumVitaePath = $this->storeFileWithOriginalName($curriculumVitae, 'Profile_IMG');
+            $newDoctor->curriculum_vitae = $curriculumVitaePath;
+        }
+
+        $newDoctor->performance = $data['performance'];
+
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $this->storeFileWithOriginalName($image, 'Profile_IMG');
+            $newDoctor->image = $imagePath;
+        }
+    
+        $newDoctor->promotions()->sync($data['promotions'] ?? []);
+
+        $newDoctor->save();
+
+        return redirect()->route('admin.doctors.index', ['doctor' => $newDoctor]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    private function storeFileWithOriginalName($file, $directory)
     {
-        //
+    $originalName = $file->getClientOriginalName();
+    $filePath = $file->storeAs($directory, $originalName);
+    return $filePath;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+   
+    public function show(Doctor $doctor)
     {
-        //
+        return view('admin.doctors.show', compact('doctor'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+
+    public function edit(Doctor $doctor)
+    {   
+        $specializations = Specialization::all();
+        $promotions = Promotion::all();
+        return view('admin.doctors.edit', compact('doctor', 'specializations', 'promotions'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+   
+    public function update(Request $request, Doctor $doctor)
     {
-        //
+        
+        $data = $request->validate($this->validations, $this->validations_messages);
+        $data = $request->all();
+
+            
+        if (isset($data['image'])){
+
+            $image = Storage::disk('public')->put('uploads', $data['image']);
+            if($doctor->image) {
+                Storage::delete($doctor->image);
+            }
+
+            $doctor->image = $image;
+        }
+        
+        if(isset($data['curriculum_vitae'])){
+
+            if($doctor->curriculum_vitae) {
+                Storage::delete($doctor->curriculum_vitae);
+            }
+
+            $doctor->curriculum_vitae = $data['curriculum_vitae'];
+    
+        }
+
+        $doctor->telephone = $data['telephone'];
+        $doctor->performance = $data['performance'];
+
+        
+    
+        $doctor->promotions()->sync($data['promotions'] ?? []);
+
+        $doctor->update();
+
+        return to_route('admin.doctors.show', ['doctor' => $doctor->id]);
     }
+
+   
+    public function destroy(Doctor $doctor)
+    {   
+        $doctor->promotions()->detach();
+        $doctor->user()->detach();
+
+        $doctor->delete();
+
+        return to_route('admin.doctors.index')->with('delete_success', $doctor);
+    }
+
+
 }
+
+
