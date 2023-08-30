@@ -6,7 +6,9 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -40,6 +42,25 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
+    // public function destroy(Request $request): RedirectResponse
+    // {
+    //     $request->validateWithBag('userDeletion', [
+    //         'password' => ['required', 'current-password'],
+    //     ]);
+
+    //     $user = $request->user();
+
+    //     Auth::logout();
+
+    //     $user->specializations()->detach();
+    //     $user->delete();
+
+    //     $request->session()->invalidate();
+    //     $request->session()->regenerateToken();
+
+    //     return Redirect::to('/');
+    // }
+ 
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
@@ -50,11 +71,21 @@ class ProfileController extends Controller
 
         Auth::logout();
 
-        $user->delete();
+        // Delete related doctor if exists
+        if ($user->doctor) {
+            $user->doctor->delete();
+        }
+
+        // Detach all specializations
+        $user->specializations()->detach();
+
+        // Perform a hard delete
+        DB::table('users')->where('id', $user->id)->delete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return Redirect::to('/')->with('success', 'Account eliminato con successo.');
     }
+
 }

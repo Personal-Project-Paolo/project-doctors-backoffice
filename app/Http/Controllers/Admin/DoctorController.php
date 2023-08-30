@@ -138,12 +138,16 @@ class DoctorController extends Controller
    
     public function destroy(Doctor $doctor)
     {   
-        $doctor->promotions()->detach();
+        if ($doctor->file){
+            Storage::delete($doctor->file);
+        }
         
+        $doctor->promotions()->detach();
+        $doctor->forceDelete();
 
-        $doctor->delete();
-
-        return to_route('admin.doctors.index')->with('delete_success', $doctor);
+       
+        
+        return to_route('admin.dashboard.index')->with('delete_success', $doctor);
     }
 
 
