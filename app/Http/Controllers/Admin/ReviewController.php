@@ -5,19 +5,27 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $reviews = Review::all();
+        $reviews = Review::with('doctor')->where('doctor_id', Auth::user()->doctor->id)->latest()->get();
         return view('admin.reviews.index', compact('reviews'));
     }
+    // public function index()
+    // {
+    //     $reviews = Review::with('user')->where('doctor_id', Auth::user()->id)->latest()->get();
+        
+    //     return view('admin.reviews.index', compact('reviews'));
+    // }
+
+    public function user()
+    {
+    return $this->belongsTo(User::class, 'doctor_id');
+    }
+    
 
     /**
      * Show the form for creating a new resource.

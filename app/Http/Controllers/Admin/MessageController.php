@@ -16,8 +16,13 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $messages = Message::with('user')->where('user_id', Auth::user()->id)->latest()->get();
+        $messages = Message::with('user')->where('doctor_id', Auth::user()->id)->latest()->get();
         return view('admin.messages.index', compact('messages'));
+    }
+
+    public function user()
+    {
+    return $this->belongsTo(User::class, 'doctor_id');
     }
 
     /**
