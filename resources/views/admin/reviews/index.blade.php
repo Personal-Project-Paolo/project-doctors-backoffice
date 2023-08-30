@@ -1,5 +1,5 @@
 <x-app-layout>
-    {{-- @section('contents')
+    @section('contents')
 
     <div class="dark:text-gray-100">
         <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Recensioni</h2>
@@ -36,11 +36,12 @@
             </table>
         </div>
 
-    @endsection --}}
+    @endsection
+{{-- @section('content')
 
 @section('title', 'Recensioni')
 
-@section('content')
+
 
 <div class="container">
         <div class="text-center text-review-index p-3">
@@ -60,6 +61,6 @@
     </div>
 </div>
 
-@endsection
+@endsection --}}
 
 </x-app-layout>
