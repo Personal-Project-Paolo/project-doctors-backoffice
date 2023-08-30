@@ -1,6 +1,14 @@
 <x-app-layout>
     @section('contents')
 
+
+
+    <div>
+        @foreach ($messages as $message)
+            <span>{{$message->email}}</span>
+        @endforeach
+    </div>
+
     <div class="dark:text-gray-100">
         <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Messaggi</h2>
 

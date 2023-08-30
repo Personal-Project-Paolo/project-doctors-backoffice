@@ -70,7 +70,7 @@ class DoctorController extends Controller
 
         $newDoctor->save();
 
-        return redirect()->route('admin.doctors.index', ['doctor' => $newDoctor]);
+        return redirect()->route('admin.doctors.show', ['doctor' => $newDoctor]);
 
     }
 
@@ -139,7 +139,7 @@ class DoctorController extends Controller
     public function destroy(Doctor $doctor)
     {   
         $doctor->promotions()->detach();
-        $doctor->user()->detach();
+        
 
         $doctor->delete();
 

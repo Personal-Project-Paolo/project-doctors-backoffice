@@ -15,7 +15,7 @@ class Review extends Model
 
     public $timestamps = false;
 
-    public function user()
+    public function doctor()
     {
         return $this->belongsTo(User::class);
     }

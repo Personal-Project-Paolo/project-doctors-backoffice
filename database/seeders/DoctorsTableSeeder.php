@@ -23,21 +23,15 @@ class DoctorsTableSeeder extends Seeder
                 
                 "user_id"          => $arrDoctors ['user_id'],
 
-                // "email"            => $arrDoctors ['email'],
-                // "password"         => Hash::make('password'),
-                // "name"             => $arrDoctors ['name'],
-                // "lastname"         => $arrDoctors ['lastname'],
-                // "address"          => $arrDoctors ['address'],
                 "telephone"        => $arrDoctors ['telephone'],
                 "curriculum_vitae" => $arrDoctors ['curriculum_vitae'],
-                // "name"             => $arrDoctors ['name'],
                 "image"            => $arrDoctors ['image'],
                 "performance"      => $arrDoctors ['performance'],
                 "promotion_counter"=> $arrDoctors ['promotion_counter'],
                 
             ]);
             $user->promotions()->sync($arrDoctors['promotions']);
-            // $user->specializations()->sync($arrDoctors['specializations']);
+            
         }
     }
 }

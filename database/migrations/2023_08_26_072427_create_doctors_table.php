@@ -17,13 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
 
-            
-            // $table->string('email')->unique();
-            // $table->timestamp('email_verified_at')->nullable();
-            // $table->string('password');
-            // $table->string('name');
-            // $table->string('lastname');
-            // $table->string('address');
             $table->string('telephone');
             $table->string('curriculum_vitae')->nullable();
             $table->string('image')->nullable();
