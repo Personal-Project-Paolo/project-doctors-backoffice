@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
 
@@ -37,6 +38,7 @@ Route::middleware(['auth', 'verified'])
             Route::resource('users',   UserController::class);
             Route::resource('reviews', ReviewController::class);
             Route::resource('messages',MessageController::class);
+            Route::resource('sponsorships', SponsorshipController::class);
             Route::resource('dashboard',DashboardController::class);
             
            
