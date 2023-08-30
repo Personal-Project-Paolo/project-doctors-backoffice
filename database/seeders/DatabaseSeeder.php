@@ -22,12 +22,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-           
+            
             PromotionsTableSeeder::class,
             SpecializationsTableSeeder::class,
+           
+            ReviewsTableSeeder::class,
+            MessagesTableSeeder::class,
             UsersTableSeeder::class,
             DoctorsTableSeeder::class,
-        
         ]);
     }
 }

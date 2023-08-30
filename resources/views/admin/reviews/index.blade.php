@@ -13,25 +13,22 @@
                 </colgroup>
                 <thead>
                     <tr class="dark:bg-gray-700">
-                        <th class="p-2">Voto</th>
                         <th class="p-2">Nome</th>
+                        <th class="p-2">Voto</th>
                         <th class="p-2">Testo</th> 
                     </tr>
                 </thead>
                 <tbody class="border-b dark:bg-gray-900 dark:border-gray-700">
-                    @foreach ($reviews as $rewie)
+                    @foreach ($reviews as $review)
                         <tr>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->id }}</p>
+                                <p>{{ $review->name }}</p>
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->valutation }}</p>
+                                <p>{{ $review->valutation }}</p>
                             </td>
                             <td class="px-2 py-2">
-                                <p>{{ $rewie->name }}</p>
-                            </td>
-                            <td class="px-2 py-2">
-                                <p>{{ $rewie->review }}</p>
+                                <p>{{ $review->review }}</p>
                             </td>
                         </tr>
                     @endforeach
