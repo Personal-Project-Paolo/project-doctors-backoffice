@@ -1,11 +1,11 @@
 <x-app-layout>
 
-    @section('content')
+    @section('contents')
     
         <div class="container">
-            @include('admin.sponsorships.partials.create_edit', [
+            @include('admin.promotions.partials.create_edit', [
             'method' => 'PUT',
-            'route' => 'admin.sponsorships.update',
+            'route' => 'admin.promotions.update',
             ])
         </div>
 
