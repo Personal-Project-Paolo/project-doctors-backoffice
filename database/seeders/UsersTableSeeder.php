@@ -20,16 +20,16 @@ class UsersTableSeeder extends Seeder
 
         foreach ($users as $arrUsers){
             $user = User::create([
-                                
+
                 "email"            => $arrUsers ['email'],
-                "password"         => Hash::make('password'),
+                "password"         => Hash::make($arrUsers['password']),
                 "name"             => $arrUsers ['name'],
                 "lastname"         => $arrUsers ['lastname'],
                 "address"          => $arrUsers ['address'],
-                
+
             ]);
             $user->specializations()->sync($arrUsers['specializations']);
         }
-        
+
     }
 }
