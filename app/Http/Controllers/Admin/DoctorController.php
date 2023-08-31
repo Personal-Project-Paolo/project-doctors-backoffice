@@ -152,5 +152,3 @@ class DoctorController extends Controller
 
 
 }
-
-
