@@ -18,7 +18,7 @@ class Doctor extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     public function promotions()
     {
         return $this->belongsToMany(Promotion::class);
@@ -26,12 +26,12 @@ class Doctor extends Model
 
     public function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(Message::class,'doctor_id');
     }
 
     public function reviews()
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(Review::class,'doctor_id');
     }
 
     protected static function boot()
