@@ -3,7 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\ReviewController;
+use App\Http\Controllers\Api\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +19,10 @@ use App\Http\Controllers\Api\DoctorController;
 |
 */
 
-Route::get('users', [DoctorController::class, 'index'])->name('api.doctors.index');
+Route::get('doctors', [DoctorController::class, 'index'])->name('api.doctors.index');
+
+Route::get('users', [UserController::class, 'index'])->name('api.users.index');
+
+Route::get('messages', [MessageController::class, 'index'])->name('api.messages.index');
+
+Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.index');
