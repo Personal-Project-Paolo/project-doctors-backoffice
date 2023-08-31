@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -60,7 +61,7 @@ class ProfileController extends Controller
 
     //     return Redirect::to('/');
     // }
- 
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
@@ -72,9 +73,8 @@ class ProfileController extends Controller
         Auth::logout();
 
         // Delete related doctor if exists
-        if ($user->doctor) {
-            $user->doctor->delete();
-        }
+        $user = User::findOrFail($user->id);
+        $user->delete();
 
         // Detach all specializations
         $user->specializations()->detach();
