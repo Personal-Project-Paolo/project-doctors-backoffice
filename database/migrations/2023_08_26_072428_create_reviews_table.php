@@ -25,7 +25,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
     }
 
@@ -40,6 +40,6 @@ return new class extends Migration
             $table->dropForeign('reviews_doctor_id_foreign');
             $table->dropColumn(('doctors_id'));
         });
-        
+
     }
 };

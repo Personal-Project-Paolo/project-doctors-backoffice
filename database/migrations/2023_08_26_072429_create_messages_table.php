@@ -23,7 +23,7 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
     }
 
@@ -38,6 +38,6 @@ return new class extends Migration
             $table->dropForeign('messages_doctors_id_foreign');
             $table->dropColumn(('doctor_id'));
         });
-        
+
     }
 };
