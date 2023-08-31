@@ -14,7 +14,7 @@ class Promotion extends Model
 
     public $timestamps = false;
 
-    public function users()
+    public function doctor()
     {
         return $this->belongsToMany(User::class);
     }
