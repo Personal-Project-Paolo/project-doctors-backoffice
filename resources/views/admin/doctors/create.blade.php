@@ -44,7 +44,7 @@
                     
                             <div class="col-span-full sm:col-span-3">
                                 <label for="performance" class="form-label" style="font-weight:700; font-size:20px">
-                                    Performace
+                                    Performance
                                 </label>
                                 <input 
                                 type="text" 
@@ -103,7 +103,7 @@
                              <!-- Promozioni -->
 
                             <div class="mb-4 sm:col-span-3">
-                                <h6 class="text-lg font-medium">Sponsors</h6>
+                                <h6 class="text-lg font-medium">Promotion</h6>
             
                                     <div class="flex items-center mb-2">
                                         
