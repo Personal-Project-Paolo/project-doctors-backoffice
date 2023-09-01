@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers\Api;
 
-
-use App\Models\Doctor;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Http\Request;
 
-class DoctorController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $doctors = Doctor::with('promotions')->paginate(5);
+        $users = User::with('specializations')->paginate(5);
 
         return response()->json([
             'success' => true,
-            'results' => $doctors,
+            'results' => $users,
         ]);
     }
 
-
-    public function show($id)
+    public function show(User $user)
     {
         //
     }
