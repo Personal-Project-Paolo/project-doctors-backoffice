@@ -166,4 +166,5 @@ return [
         "promotions" => [2],
         "specializations" => [10, 13, 17],
     ],
+    
 ];
