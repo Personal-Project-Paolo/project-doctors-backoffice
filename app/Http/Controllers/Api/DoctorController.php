@@ -9,11 +9,7 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Request $request)
     {
         $searchString = $request->query('q', '');
