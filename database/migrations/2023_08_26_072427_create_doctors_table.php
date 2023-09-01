@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('slug')->unique();
+
+            $table->string('name');
 
             $table->string('telephone');
             $table->string('curriculum_vitae')->nullable();

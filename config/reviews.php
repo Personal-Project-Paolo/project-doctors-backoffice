@@ -1,5 +1,5 @@
-<!-- 
-<?php
+ <?php
+ 
 return [
     [
         'doctor_id' => 1, 

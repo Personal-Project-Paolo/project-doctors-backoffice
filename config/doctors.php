@@ -4,16 +4,20 @@ return [
     [   
         "user_id" => 1,
 
+        "name" => "John Michael",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/JD.jpg",
         "performance" => "",
         "promotion_counter" => "",
         "promotions" => [3],
-        "specializations" => [16, 17, 18],
+        "specializations" => [23],
     ],
     [   
         "user_id" => 2,
+
+        "name" => "Gregory",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -26,6 +30,8 @@ return [
     [   
         "user_id" => 3,
 
+        "name" => "James",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/James-WIlson.jpg",
@@ -36,6 +42,8 @@ return [
     ],
     [   
         "user_id" => 4,
+
+        "name" => "Eric",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -48,6 +56,8 @@ return [
     [   
         "user_id" => 5,
 
+        "name" => "Martha",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Masters.jpeg",
@@ -58,6 +68,8 @@ return [
     ],
     [   
         "user_id" => 6,
+
+        "name" => "Robert",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -70,6 +82,8 @@ return [
     [   
         "user_id" => 7,
 
+        "name" => "Allison",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Cameron.jpg",
@@ -80,6 +94,8 @@ return [
     ],
     [   
         "user_id" => 8,
+
+        "name" => "Tredici",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -92,6 +108,8 @@ return [
     [   
         "user_id" => 9,
 
+        "name" => "Chris",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Taub.jpg",
@@ -102,6 +120,8 @@ return [
     ],
     [   
         "user_id" => 10,
+
+        "name" => "Lawrence",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -114,6 +134,8 @@ return [
     [   
         "user_id" => 11,
 
+        "name" => "Elliot",
+
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Elliot-Reid.jpeg",
@@ -123,7 +145,9 @@ return [
         "specializations" => [4, 15],
     ],
     [   
-        "user_id" => 11,
+        "user_id" => 12,
+
+        "name" => "Christopher Duncan",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -134,7 +158,9 @@ return [
         "specializations" => [14, 1],
     ],
     [   
-        "user_id" => 12,
+        "user_id" => 13,
+
+        "name" => "Percival Ulysses",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -145,7 +171,9 @@ return [
         "specializations" => [15, 7],
     ],
     [   
-        "user_id" => 13,
+        "user_id" => 14,
+
+        "name" => "Robert-Kelso",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
@@ -156,7 +184,9 @@ return [
         "specializations" => [10, 17],
     ],
     [   
-        "user_id" => 14,
+        "user_id" => 15,
+
+        "name" => "Todd",
 
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
