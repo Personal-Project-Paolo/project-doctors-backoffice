@@ -9,9 +9,16 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-        $doctors = Doctor::with('promotions')->paginate(5);
+        $searchString = $request->query('q', '');
+
+        $doctors = Doctor::with('promotions')->where('name', 'LIKE', "%{$searchString}%")->paginate(5);
 
         return response()->json([
             'success' => true,
