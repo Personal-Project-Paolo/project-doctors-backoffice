@@ -1,8 +1,7 @@
-<!-- 
 <?php
 return [
     [
-        'doctor_id' => 1, 
+        'doctor_id' => 1,
         'valutation' => 5,
         'name' => 'Maria',
         'review' => 'Eccellente',
