@@ -14,6 +14,7 @@ class DoctorController extends Controller
 
     // Validazioni per validare i dati
     private $validations = [
+        'name'              => 'nullable',
         'telephone'         => 'required',
         'curriculum_vitae'  => 'required|file|mimes:pdf,docx',
         'performance'       => 'required',
@@ -49,6 +50,8 @@ class DoctorController extends Controller
 
         $newDoctor->user_id = auth()->user()->id; 
 
+        $newDoctor->name = $data['name'];
+        $newDoctor->slug = Doctor::slugger($data['name']);
         $newDoctor->telephone = $data['telephone'];
 
         if ($request->hasFile('curriculum_vitae')) {
@@ -82,25 +85,32 @@ class DoctorController extends Controller
     }
 
    
-    public function show(Doctor $doctor)
+    public function show($slug)
     {
+        $doctor = Doctor::where('slug', $slug)->firstOrFail();
         return view('admin.doctors.show', compact('doctor'));
     }
 
 
-    public function edit(Doctor $doctor)
+    public function edit($slug)
     {   
+        
+        $doctor = Doctor::where('slug', $slug)->firstOrFail();
         $specializations = Specialization::all();
         $promotions = Promotion::all();
         return view('admin.doctors.edit', compact('doctor', 'specializations', 'promotions'));
     }
 
    
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, $slug)
     {
         
+        $doctor = Doctor::where('slug', $slug)->firstOrfail();
+
         $data = $request->validate($this->validations, $this->validations_messages);
         $data = $request->all();
+
+        // $doctor->name = $data['name'];
 
             
         if (isset($data['image'])){
@@ -132,12 +142,14 @@ class DoctorController extends Controller
 
         $doctor->update();
 
-        return to_route('admin.doctors.show', ['doctor' => $doctor->id]);
+        return to_route('admin.doctors.show', ['doctor' => $doctor]);
     }
 
    
-    public function destroy(Doctor $doctor)
+    public function destroy($slug)
     {   
+        $doctor = Doctor::where('slug', $slug)->firstOrFail();
+
         if ($doctor->file){
             Storage::delete($doctor->file);
         }

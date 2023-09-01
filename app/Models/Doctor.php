@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Promotion;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,6 +44,34 @@ class Doctor extends Model
                 $doctor->user_id = auth()->user()->id;
             }
         });
+    }
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public static function slugger($string)
+    {
+        //Project::slugger($title)
+
+        //generare lo slug base
+
+        $baseSlug = Str::slug($string); //ciao-a-tutti
+        $i = 1;
+        $slug = $baseSlug;
+
+        //finchè lo slug generato è presente nella tabella
+        while (Doctor::where('slug', $slug)->first()) {
+
+            //genera un nuovo slug concatenando il contatore
+            $slug = $baseSlug . '-' . $i; //ciao-a-tutti-1
+
+            //incrementa il contatore
+            $i++; //ciao-a-tutti-2
+        }
+
+        return $slug;
     }
 
 }

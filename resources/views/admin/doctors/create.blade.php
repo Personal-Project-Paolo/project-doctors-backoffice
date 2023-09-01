@@ -17,8 +17,31 @@
                     <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                         <div class="space-y-2 col-span-full lg:col-span-1">
                             <p class="font-medium">Informations</p>
-                            <p class="text-xs">Put the information here to create a new project</p>
+                            <p class="text-xs">Put the information here to create a new profile</p>
                         </div>
+
+                        <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+                            
+                            {{-- Name del dottore - Slug --}}
+                            
+                              <div class="col-span-full sm:col-span-3">
+                                <label 
+                                for="name" class="form-label" style="font-weight:700; font-size:20px">
+                                    Name
+                                </label>
+                                <input 
+                                type="text" 
+                                class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('name') is-invalid @enderror" 
+                                id="name" 
+                                name="name" 
+                                value="{{ old('name')}}">
+                    
+                                <div class="invalid-feedback">
+                                    @error('name') {{ $message }} @enderror
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
                             {{-- Telephone del dottore --}}
