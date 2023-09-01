@@ -14,9 +14,11 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $doctors = Doctor::with('promotions', 'specializations')->paginate(5);
+        $searchString = $request->query('q', '');
+
+        $doctors = Doctor::with('promotions')->where('name', 'LIKE', "%{$searchString}%")->paginate(5);
 
         return response()->json([
             'success' => true,
