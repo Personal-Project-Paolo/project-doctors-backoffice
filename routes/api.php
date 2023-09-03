@@ -22,6 +22,7 @@ use App\Http\Controllers\Api\MessageController;
 Route::get('doctors', [DoctorController::class, 'index'])->name('api.doctors.index');
 
 Route::get('users', [UserController::class, 'index'])->name('api.users.index');
+Route::get('users/{user}', [UserController::class, 'show'])->name('api.users.show');
 
 Route::get('messages', [MessageController::class, 'index'])->name('api.messages.index');
 

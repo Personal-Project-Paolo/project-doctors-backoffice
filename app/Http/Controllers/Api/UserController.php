@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('specializations')->paginate(5);
+        $users = User::with('specializations', 'doctor')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -18,8 +18,12 @@ class UserController extends Controller
         ]);
     }
 
-    public function show(User $user)
+    public function show($slug)
     {
-        //
+        $user = User::where('slug', $slug)->first();
+        return response()->json([
+            'success' => true,
+            'results' => $user,
+        ]);    
     }
 }

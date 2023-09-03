@@ -121,7 +121,7 @@ return [
     [
         "email" => "Bob.Kelso.@mail.com",
         "password" => "14222222",
-        "name" => "Robert",
+        "name" => "Robert-Kelso",
         "lastname" => "Kelso",
         "address" => "Via numero 14 - Città 14",
         

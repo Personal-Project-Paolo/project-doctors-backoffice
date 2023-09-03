@@ -19,11 +19,13 @@ class UsersTableSeeder extends Seeder
         $users = config('users');
 
         foreach ($users as $arrUsers){
+            $slug = User::slugger($arrUsers['name']);
             $user = User::create([
 
                 "email"            => $arrUsers ['email'],
                 "password"         => Hash::make($arrUsers['password']),
                 "name"             => $arrUsers ['name'],
+                "slug"             => $slug, 
                 "lastname"         => $arrUsers ['lastname'],
                 "address"          => $arrUsers ['address'],
 

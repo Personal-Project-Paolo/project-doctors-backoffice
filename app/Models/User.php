@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Models\Doctor;
+use Illuminate\Support\Str;
 use App\Models\Specialization;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -62,5 +63,32 @@ class User extends Authenticatable
         return $this->belongsToMany(Specialization::class);
     }
 
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public static function slugger($string)
+    {
+        //Project::slugger($title)
+
+        //generare lo slug base
+
+        $baseSlug = Str::slug($string); //ciao-a-tutti
+        $i = 1;
+        $slug = $baseSlug;
+
+        //finchè lo slug generato è presente nella tabella
+        while (User::where('slug', $slug)->first()) {
+
+            //genera un nuovo slug concatenando il contatore
+            $slug = $baseSlug . '-' . $i; //ciao-a-tutti-1
+
+            //incrementa il contatore
+            $i++; //ciao-a-tutti-2
+        }
+
+        return $slug;
+    }
 
 }
