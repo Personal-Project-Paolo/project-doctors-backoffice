@@ -18,8 +18,7 @@ class DoctorController extends Controller
             'success' => true,
             'results' => $doctors,
         ]);
-
-        
+ 
     }
 
 
