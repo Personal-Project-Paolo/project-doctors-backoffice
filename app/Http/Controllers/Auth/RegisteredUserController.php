@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
 use Illuminate\Validation\Rules;
@@ -52,6 +53,7 @@ class RegisteredUserController extends Controller
         ];
         
         $data = $request->all();
+        
 
         $user = User::create([
 
@@ -60,6 +62,7 @@ class RegisteredUserController extends Controller
             'name'          => $request->name,
             'lastname'      => $request->lastname,
             'address'       => $request->address,
+            'slug'          => Str::slug($request->name),
         ]);
 
         $user->specializations()->sync($data['specializations'] ?? []);

@@ -12,14 +12,14 @@ class DoctorController extends Controller
    
     public function index()
     {
-        
-
         $doctors = Doctor::with('promotions', 'messages', 'reviews')->paginate(5);
 
         return response()->json([
             'success' => true,
             'results' => $doctors,
         ]);
+
+        
     }
 
 
