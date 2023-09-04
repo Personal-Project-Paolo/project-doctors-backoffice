@@ -9,16 +9,16 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
-   
+
     public function index()
     {
-        $doctors = Doctor::with('promotions', 'messages', 'reviews')->paginate(5);
+        $doctors = Doctor::with('promotions', 'messages', 'reviews')->paginate(100);
 
         return response()->json([
             'success' => true,
             'results' => $doctors,
         ]);
- 
+
     }
 
 
@@ -28,6 +28,6 @@ class DoctorController extends Controller
         return response()->json([
             'success' => true,
             'results' => $doctor,
-        ]); 
+        ]);
     }
 }
