@@ -10,11 +10,11 @@ use App\Http\Controllers\Controller;
 class DoctorController extends Controller
 {
    
-    public function index(Request $request)
+    public function index()
     {
-        $searchString = $request->query('q', '');
+        
 
-        $doctors = Doctor::with('promotions')->where('name', 'LIKE', "%{$searchString}%")->paginate(5);
+        $doctors = Doctor::with('promotions', 'messages', 'reviews')->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -23,8 +23,12 @@ class DoctorController extends Controller
     }
 
 
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $doctor = Doctor::with('promotions', 'messages', 'reviews')->where('slug', $slug)->first();
+        return response()->json([
+            'success' => true,
+            'results' => $doctor,
+        ]); 
     }
 }
