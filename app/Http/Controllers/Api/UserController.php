@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('specializations')->paginate(5);
+        $users = User::with('specializations', 'doctor')->paginate(5);
 
         return response()->json([
             'success' => true,
