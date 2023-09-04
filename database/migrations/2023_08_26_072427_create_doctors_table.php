@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('curriculum_vitae')->nullable();
             $table->string('image')->nullable();
             $table->string('performance');
-            $table->string('promotion_counter')->nullable();
+            $table->integer('promotion_counter')->nullable()->default(0);
 
             $table->softDeletes();
 

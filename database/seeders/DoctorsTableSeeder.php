@@ -21,20 +21,19 @@ class DoctorsTableSeeder extends Seeder
             $slug = Doctor::slugger($arrDoctors['name']);
 
             $doctor = Doctor::create([
-                
+
                 "user_id"          => $arrDoctors ['user_id'],
                 "name"             => $arrDoctors ['name'],
-                "slug"             => $slug, 
+                "slug"             => $slug,
 
                 "telephone"        => $arrDoctors ['telephone'],
                 "curriculum_vitae" => $arrDoctors ['curriculum_vitae'],
                 "image"            => $arrDoctors ['image'],
                 "performance"      => $arrDoctors ['performance'],
-                "promotion_counter"=> $arrDoctors ['promotion_counter'],
-                
+
             ]);
             $doctor->promotions()->sync($arrDoctors['promotions']);
-            
+
         }
     }
 }
