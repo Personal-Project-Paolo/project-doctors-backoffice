@@ -32,7 +32,8 @@ class MailToLead extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Mail To Lead',
+            replyTo: $this->lead->address,
+            subject: 'Richiesta di informazionei ricevuta ' . $this->lead->name,
         );
     }
 
@@ -44,7 +45,7 @@ class MailToLead extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.mail-to-lead',
         );
     }
 
