@@ -28,3 +28,8 @@ Route::get('users/{user}', [UserController::class, 'show'])->name('api.users.sho
 Route::get('messages', [MessageController::class, 'index'])->name('api.messages.index');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.index');
+
+
+// Qui sotto route da sistemare per mail trap
+
+Route::post('leads/', [LeadController::class, 'store'])->name('api.leads.store');
