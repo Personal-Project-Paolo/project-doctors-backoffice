@@ -22,14 +22,14 @@ class DoctorsTableSeeder extends Seeder
 
             $doctor = Doctor::create([
 
-                "user_id"          => $arrDoctors ['user_id'],
-                "name"             => $arrDoctors ['name'],
-                "slug"             => $slug,
-
-                "telephone"        => $arrDoctors ['telephone'],
-                "curriculum_vitae" => $arrDoctors ['curriculum_vitae'],
-                "image"            => $arrDoctors ['image'],
-                "performance"      => $arrDoctors ['performance'],
+                "user_id"           => $arrDoctors ['user_id'],
+                "name"              => $arrDoctors ['name'],
+                "slug"              => $slug,
+                "telephone"         => $arrDoctors ['telephone'],
+                "curriculum_vitae"  => $arrDoctors ['curriculum_vitae'],
+                "image"             => $arrDoctors ['image'],
+                "performance"       => $arrDoctors ['performance'],
+                "promotion_counter" => count($arrDoctors["promotions"]),
 
             ]);
             $doctor->promotions()->sync($arrDoctors['promotions']);
