@@ -18,7 +18,7 @@
         position: relative;
     }
     .title{
-        margin-top: 6rem;
+        /* margin-top: 6rem; */
         margin-left: 4rem;
     }
     h1{

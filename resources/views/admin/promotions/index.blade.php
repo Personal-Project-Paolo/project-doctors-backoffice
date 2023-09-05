@@ -1,81 +1,102 @@
 <x-app-layout>
 
-    @section('title', 'Sponsorizzazioni')
-    @section('contents')
-        <section class="sponsor">
-            <div class="container py-5">
-
-                @if (session('message'))
-                    <div class="alert alert-{{ session('alert-type') }}">
-                        {{ session('message') }}
-                    </div>
-                @endif
-
-                <div class="row mb-5 justify-content-center">
-                    <div class="col-7">
-                        <h2 class="text-center mb-4">Acquista un sponsorizzazione!</h2>
-                        <h5 class="text-center">Selezionando uno dei nostri pacchetti sponsor, il tuo profilo verrà pubblicato
-                            nella nostra homepage per la durata indicata</h5>
-                    </div>
-                </div>
-
-                {{-- <div class="row justify-content-around">
-                    @foreach ($promotions as $promotion)
-                        <div class="card pb-3 col-12 col-md-3 mb-4 text-center">
-                            <h4 class="text-uppercase py-3 type-sponsor text-white">{{ $promotion->specifics }}</h4>
-                            <div>
-                                <h5 class="card-title pt-3">Durata: {{ $promotion->duration }} ore</h5>
-                                <h1 class="card-text py-4">{{ $promotion->price }} &euro;</h1>
-                                <a class="my-btn" href=" {{ route('admin.promotions.show', $promotion->id) }}">Acquista</a>
-                            </div>
-                        </div>
-                    @endforeach
-                </div> --}}
-
-                <div>
-                    <table class="w-full p-6 text-xs text-left whitespace-nowrap">
-                        <colgroup>
-                            <col class="w-5">
-                            <col>
-                            <col class="w-5">
-                        </colgroup>
-                        <thead>
-                            <tr class="dark:bg-gray-700">
-                                <th class="p-2">Nome</th>
-                                <th class="p-2">Descrizione</th> 
-                                <th class="p-2">Durata</th> 
-                                <th class="p-2">Prezzo</th> 
-                            </tr>
-                        </thead>
-                        <tbody class="border-b dark:bg-gray-900 dark:border-gray-700">
-                            @foreach ($promotions as $promotion)
-                                <tr>
-                                   
-                                    <td class="px-2 py-2">
-                                        <p>{{ $promotion->name }}</p>
-                                        
-                                    </td>
-                                    <td class="px-2 py-2">
-                                        <p>{{ $promotion->description }}</p>
-                                    </td>
-                                   
-                                    <td class="px-2 py-2">
-                                        <p>{{ $promotion->time }}</p>
-                                    </td>
-                                    <td class="px-2 py-2">
-                                        <p>{{ $promotion->price }}</p>
-                                    </td>
-                                   <td class="px-2 py-2">>
-                                    <a class="my-btn" href=" {{ route('admin.promotions.show', $promotion->id) }}">Acquista</a>
-                                   </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-        </section>
-@endsection
     
+    @section('contents')
+        <div class="bg">
+            <div class="dark:text-gray-100 contain  text-center">
+                <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Promozioni</h2>
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 text-center">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                           Nome
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Descrizione
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Durata
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Prezzo
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Azioni
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700 ">
+                                        @foreach ($promotions as $promotion)
+                                            <tr>
+                                            
+                                                <td class="px-6 py-4">
+                                                    <p>{{ $promotion->name }}</p>
+                                                    
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <p>{{ $promotion->description }}</p>
+                                                </td>
+                                            
+                                                <td class="px-6 py-4">
+                                                    <p>{{ $promotion->time }}</p>
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <p>{{ $promotion->price }}</p>
+                                                </td>
+                                            <td class="px-6 py-4 text-center ">
+                                                <a class="my-btn" href=" {{ route('admin.promotions.show', $promotion->id) }}">Acquista</a>
+                                            </td>
+                                            </tr>
+                                        @endforeach
+                                    </tr>  
+                                </tbody>
+                            </table>
+                        </div>
+                                  
+            </div>
+        </div>
+        
+    @endsection
+
 </x-app-layout>
+
+
+            <style>
+
+                .bg{
+                    width: 100%;
+                    background-image: url('https://us.123rf.com/450wm/wstockstudio/wstockstudio1707/wstockstudio170700042/81669810-stetoscopio-isolato-su-sfondo-nero-scrivania-di-medici-sterili-accessori-medici-sullo-sfondo-nero.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 100vh;
+                    padding-top: 4.5rem;
+                    text-align: center;
+                }
+                .contain{
+                    width: 70%;
+                    background-color: white;
+                    margin: auto;
+                    padding: 1rem;
+                    border-radius: 1rem;
+                }
+
+                .my-btn{
+                    background-color: #01bdcc;
+                    color: white;
+                    border: 2px solid white;
+                    border-radius: .5rem;
+                    width: 100%;
+                 }
+
+                 h2{
+                    color: #01bdcc;
+                 }
+            </style>
+
+
+
+
+
+
