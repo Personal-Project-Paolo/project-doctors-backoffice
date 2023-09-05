@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     @section('contents')
 
         <div class="py-6 px-4 sm:px-6 lg:px-8" style="background-color: #F9FAFB;">

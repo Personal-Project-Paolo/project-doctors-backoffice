@@ -29,10 +29,11 @@
 
             <!-- Page Content -->
             <main>
-                <div class="container m-auto">
+                
                     @yield('contents')
-                </div>
+                
             </main>
         </div>
     </body>
 </html>
+
