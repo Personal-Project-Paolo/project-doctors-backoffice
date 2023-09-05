@@ -13,7 +13,30 @@ class UserController extends Controller
     {
         $searchString = $request->query('q', '');
 
-        $users = User::with('specializations', 'doctor')->where('name', 'LIKE', "%{$searchString}%")->paginate(5);
+        // $users = User::with('specializations', 'doctor')->where('name', 'LIKE', "%{$searchString}%")->paginate(5);
+
+        
+        $specializationId = $request->query('specialization');
+        
+
+        $query = User::with('specializations', 'doctor');
+
+        if ($searchString) {
+            $query = $query->where(function ($query) use ($searchString) {
+                $query->where('name', 'LIKE', "%{$searchString}%")
+                      ->orWhere('lastname', 'LIKE', "%{$searchString}%");
+            });
+        }
+
+        
+
+        if ($specializationId) {
+            $query->whereHas('specializations', function ($q) use ($specializationId) {
+                $q->where('id', $specializationId);
+            });
+        }
+
+        $users = $query->paginate(5);
 
         return response()->json([
             'success' => true,
@@ -23,7 +46,7 @@ class UserController extends Controller
 
     public function show($slug)
     {
-        $user = User::with('specializations', 'doctor')->where('slug', $slug,)->first();
+        $user = User::with('specializations', 'doctor')->where('slug', $slug)->first();
        
         return response()->json([
             'success' => true,
