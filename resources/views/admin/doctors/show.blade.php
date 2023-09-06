@@ -54,34 +54,31 @@
 
                       
                     </div>
-                    <div class="col-span-1 md:col-span-1 lg:col-span-2 flex flex-col ">
+                    <div class="col-span-1 md:col-span-1 lg:col-span-2 flex flex-col justify-center">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 text-gray-800">{{$doctor->user->name}}</h1>
                         <p class="px-2 text-xl md:text-2xl text-gray-600">{{$doctor->user->lastname}}</p>
                         <p class="px-2 text-lg text-gray-600">{{$doctor->user->email}}</p>
                         <p class="px-2 text-lg text-gray-600">{{$doctor->user->address}}</p>
-                        <p class="px-2 text-lg text-gray-600">{{$doctor->telephone}}</p>
+                        <p class="px-2 text-lg text-gray-600"> {{$doctor->telephone}}</p>
                         <p class="px-2 py-2 text-lg text-gray-800">{{$doctor->performance}}</p>
+                        <span class=" flex flex-col justify-center ">
+                            @if ($doctor->curriculum_vitae)
+                                <span>
+                                    <a class=" text-sm md:text-base  px-3 py-1 rounded-full mr-2 mb-2  link-CV " href="{{ $doctor->curriculum_vitae }}">Link Curriculum</a>
+                                </span>
+                            @endif
+                        </span>
                         <div class="flex flex-col justify-center">
-                           
                             <div class="px-2 py-2  text-justify w-72">
                                 @foreach ($doctor->promotions as $promotion)
-                                    <span class="text-sm md:text-base bg-500 text-white px-3 py-1 rounded-full mr-2 mb-2 promotion">{{$promotion->name}}</span>
+                                    <span class="text-sm md:text-base bg-500 text-white px-3 py-1 rounded-full mr-2 mb-2 promotion">Promozioni attive:{{$promotion->name}}</span>
                                 @endforeach
                             </div>
-                             <div class="px-2 py-2 text-justify w-72">
+                             <div class="px-2 py-2 text-justify w-72 flex flex-col ">
                                  @foreach ($doctor->user->specializations as $specialization)
                                     <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization">{{$specialization->name}}</span>
                                 @endforeach
-                            </div>
-
-                            <div class="p-6  flex ">
-                                @if ($doctor->curriculum_vitae)
-                                    <p class="text-gray-600">
-                                        <a class="text-blue-500 hover:underline" href="{{ $doctor->curriculum_vitae }}">Link Curriculum</a>
-                                    </p>
-                                @endif
-                            </div>
-                               
+                             </div>   
                         </div> 
                     </div>
                     
@@ -115,6 +112,16 @@
         background-color:  #7ce2e0; 
         border: 2px solid white;
         border-radius: 2rem;
+    }
+
+    .link-CV{
+        color: black;
+        background-color: white  ; 
+       
+    }
+
+    .link-CV:hover{
+        background-color: lightgray  ;
     }
     .my-btn{
         background-color: #01bdcc;

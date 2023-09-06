@@ -18,8 +18,8 @@
 
                 <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div class="space-y-2 col-span-full lg:col-span-1">
-                        <p class="font-medium">Informations</p>
-                        <p class="text-xs">Put the information here to edit your profile</p>
+                        <p class="font-medium colour-text">Informations</p>
+                        <p class="text-xs ">Put the information here to edit your profile</p>
                     </div>
 
                     
@@ -52,12 +52,12 @@
             
                         <div class="col-span-full sm:col-span-3">
                             <label 
-                            for="telephone" class="form-label" style="font-weight:700; font-size:20px">
+                            for="telephone" class="form-label colour-text" style="font-weight:700; font-size:20px">
                                 Telephone
                             </label>
                             <input 
                             type="text" 
-                            class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('telephone') is-invalid @enderror" 
+                            class="my-second-btn w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('telephone') is-invalid @enderror" 
                             id="telephone" 
                             name="telephone" 
                             value="{{ old('telephone', $doctor->telephone)}}">
@@ -70,12 +70,12 @@
                         {{-- Prestastioni del dottore --}}
                 
                         <div class="col-span-full sm:col-span-3">
-                            <label for="performance" class="form-label" style="font-weight:700; font-size:20px">
+                            <label for="performance" class="form-label colour-text" style="font-weight:700; font-size:20px">
                                 Performace
                             </label>
                             <input 
                             type="text" 
-                            class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('performance') is-invalid @enderror" 
+                            class=" my-second-btn w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('performance') is-invalid @enderror" 
                             id="performance" 
                             name="performance" 
                             value="{{ old('performance', $doctor->performance)}}">
@@ -91,19 +91,19 @@
         
                 <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div class="space-y-2 col-span-full lg:col-span-1">
-                        <p class="font-medium">Other Informations</p>
+                        <p class="font-medium colour-text">Other Informations</p>
                     </div>
                     <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
                         {{-- Immagine Profilo del Dottore --}}
 
                         <div class="col-span-full sm:col-span-3">
-                            <label for="image" class="form-label"style="font-weight:700; font-size:20px">
+                            <label for="image" class="form-label colour-text"style="font-weight:700; font-size:20px">
                                 Image
                             </label>
                             <div class="input-group mb-3">
                                 <input type="file" 
-                                class="form-control @error('image') is-invalid @enderror" 
+                                class="form-control my-second-btn  @error('image') is-invalid @enderror" 
                                 id="image" 
                                 name="image" 
                                 accept="image/*">
@@ -117,10 +117,10 @@
                         {{-- Curriculum del Dottore --}}
 
                         <div class="col-span-full sm:col-span-3">
-                            <label for="curriculum_vitae" class="form-label"style="font-weight:700; font-size:20px">
+                            <label for="curriculum_vitae" class="form-label  colour-text"style="font-weight:700; font-size:20px">
                                 Curriculum vitae
                             </label>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3 my-second-btn">
                                 <input type="file" 
                                 class="form-control @error('curriculum_vitae') is-invalid @enderror" 
                                 id="curriculum_vitae" name="curriculum_vitae">
@@ -133,11 +133,11 @@
                         <!-- Promozioni -->
 
                         <div class="mb-4 sm:col-span-3">
-                            <h6 class="text-lg font-medium">Sponsors</h6>
+                            <h6 class="text-lg font-medium colour-text">Sponsors</h6>
         
                                 <div class="flex items-center mb-2">
                                     {{-- <label for="sponsor" class="block text-sm font-medium text-white">sponsor</label> --}}
-                                    <select class="form-select mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm @error('promotion_id') border-red-500 @enderror" id="promotion" name="promotion_id">
+                                    <select class="my-second-btn form-select mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-500 sm:text-sm @error('promotion_id') border-red-500 @enderror" id="promotion" name="promotion_id">
                                         <option selected>Change promotion</option>
         
                                         @foreach ($promotions as $promotion)
@@ -162,7 +162,7 @@
                 </fieldset>
 
                 <div class="mb-4">
-                    <button type="submit" class="px-4 py-2 text-white bg-green-700 rounded">Salva</button>
+                    <button type="submit" class="my-btn">Salva</button>
                 </div>
             
                 
@@ -180,4 +180,38 @@
     .invalid-feedback{
         color:red;
     }
+
+    .colour-text{
+        color: #01bdcc;
+    }
+
+    .my-btn{ 
+        width: 100%;
+        background-color: #01bdcc;
+        color: white;
+        border: 2px solid white;
+        border-radius: .5rem;
+       
+   }
+
+   .my-btn:hover{
+        color: #01bdcc;
+        background-color: white;
+        border: 2px solid #01bdcc;
+      
+   }
+
+
+   .my-second-btn{
+        color: black
+        margin-left: 1rem;
+        border: 2px solid #01bdcc;
+        border-radius: .5rem;
+        width: 90%;
+   }
+   
+ 
+
+  
+
 </style>
