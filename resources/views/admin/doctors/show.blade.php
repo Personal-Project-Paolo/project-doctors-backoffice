@@ -28,6 +28,7 @@
                                 @method('delete')
                                     <button class="px-4 py-3 font-semibold border rounded bg-red-500 hover:bg-red-700">Elimina</button>
                             </form>
+                            <button class="px-7 py-1 font-semibold border rounded dark:border-gray-100 dark:text-gray-100" onclick="window.location='{{ route('admin.doctors.payment', ['doctor' => $doctor]) }}'">Sponsorize</button>
                         </div>
 
                              

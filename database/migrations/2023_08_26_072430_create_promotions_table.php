@@ -16,10 +16,8 @@ return new class extends Migration
         Schema::create('promotions', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name', 30);
-            $table->string('description');
-            $table->integer('time');
-            $table->decimal('price');
+            $table->string('type', 50);
+            $table->integer('price');
             
 
             $table->softDeletes();

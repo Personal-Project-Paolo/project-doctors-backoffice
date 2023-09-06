@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('doctor_promotion', function (Blueprint $table) {
+            $table->integer('duration')->nullable()->default(30);
+            $table->date('subscription_date')->nullable();
+
+
             $table->unsignedBigInteger('promotion_id');
             $table->unsignedBigInteger('doctor_id');
-
-            // $table->date('start_date');
-            // $table->date('end_date');
 
 
             $table->foreign('promotion_id')->references('id')->on('promotions');
