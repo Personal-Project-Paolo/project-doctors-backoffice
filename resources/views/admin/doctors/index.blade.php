@@ -1,4 +1,5 @@
 <x-app-layout>
+    <div class="bg-container">
     @section ('contents')
 
         
@@ -73,5 +74,10 @@
                 {{ $projects->links('vendor.pagination.tailwind') }}
             </div> --}}
         </div>
+    
     @endsection
+
 </x-app-layout>
+
+
+
