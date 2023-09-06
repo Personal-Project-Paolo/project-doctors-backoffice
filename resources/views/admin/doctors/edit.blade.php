@@ -3,7 +3,7 @@
 @section('contents')
     <section class="m-6 p-6 dark:bg-gray-800 dark:text-gray-50">
         <div class="p-5">
-            <h1 style="font-weight:700; font-size:30px">Edit Profile Doctor</h1>
+            <h1 style="font-weight:700; font-size:30px colour-text">Edit Profile Doctor</h1>
             <form 
             method="POST" 
             action="{{ route('admin.doctors.update', ['doctor' => $doctor])}}" 
