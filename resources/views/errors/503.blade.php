@@ -1,5 +1,10 @@
-@extends('errors::minimal')
 
-@section('title', __('Service Unavailable'))
-@section('code', '503')
-@section('message', __('Service Unavailable'))
+@extends('errors.base')
+
+@section( 'contents')
+    <div class="my-container">
+        <div class="flex justify-center">
+            <h1> Errore 503 - Service Unavailable </h1>
+        </div>
+    </div>
+@endsection
