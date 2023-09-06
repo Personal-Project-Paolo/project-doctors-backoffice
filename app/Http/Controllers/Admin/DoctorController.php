@@ -10,7 +10,7 @@ use App\Models\Specialization;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
-{   
+{
 
     // Validazioni per validare i dati
     private $validations = [
@@ -25,30 +25,30 @@ class DoctorController extends Controller
     private $validations_messages = [
         'required' => 'il campo :attribute è obbligatorio'
     ];
-   
+
     public function index()
     {
         $doctors = Doctor::All();
 
         return view('admin.doctors.index', compact('doctors'));
     }
-    
+
     public function create()
-    {   
+    {
         $specializations = Specialization::All();
         $promotions = Promotion::All();
         return view('admin.doctors.create', compact('specializations', 'promotions'));
     }
 
     public function store(Request $request)
-    {   
+    {
         $data = $request->validate($this->validations, $this->validations_messages);
         $data = $request->all();
 
 
         $newDoctor = new Doctor();
 
-        $newDoctor->user_id = auth()->user()->id; 
+        $newDoctor->user_id = auth()->user()->id;
 
         $newDoctor->name = $data['name'];
         $newDoctor->slug = Doctor::slugger($data['name']);
@@ -68,7 +68,7 @@ class DoctorController extends Controller
             $imagePath = $this->storeFileWithOriginalName($image, 'Profile_IMG');
             $newDoctor->image = $imagePath;
         }
-    
+
         $newDoctor->promotions()->sync($data['promotions'] ?? []);
 
         $newDoctor->save();
@@ -84,7 +84,7 @@ class DoctorController extends Controller
     return $filePath;
     }
 
-   
+
     public function show($slug)
     {
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
@@ -93,18 +93,18 @@ class DoctorController extends Controller
 
 
     public function edit($slug)
-    {   
-        
+    {
+
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
         $specializations = Specialization::all();
         $promotions = Promotion::all();
         return view('admin.doctors.edit', compact('doctor', 'specializations', 'promotions'));
     }
 
-   
+
     public function update(Request $request, $slug)
     {
-        
+
         $doctor = Doctor::where('slug', $slug)->firstOrfail();
 
         $data = $request->validate($this->validations, $this->validations_messages);
@@ -112,7 +112,7 @@ class DoctorController extends Controller
 
         // $doctor->name = $data['name'];
 
-            
+
         if (isset($data['image'])){
 
             $image = Storage::disk('public')->put('uploads', $data['image']);
@@ -122,7 +122,7 @@ class DoctorController extends Controller
 
             $doctor->image = $image;
         }
-        
+
         if(isset($data['curriculum_vitae'])){
 
             if($doctor->curriculum_vitae) {
@@ -130,14 +130,14 @@ class DoctorController extends Controller
             }
 
             $doctor->curriculum_vitae = $data['curriculum_vitae'];
-    
+
         }
 
         $doctor->telephone = $data['telephone'];
         $doctor->performance = $data['performance'];
 
-        
-    
+
+
         $doctor->promotions()->sync($data['promotions'] ?? []);
 
         $doctor->update();
@@ -145,20 +145,20 @@ class DoctorController extends Controller
         return to_route('admin.doctors.show', ['doctor' => $doctor]);
     }
 
-   
+
     public function destroy($slug)
-    {   
+    {
         $doctor = Doctor::where('slug', $slug)->firstOrFail();
 
         if ($doctor->file){
             Storage::delete($doctor->file);
         }
-        
+
         $doctor->promotions()->detach();
         $doctor->forceDelete();
 
-       
-        
+
+
         return to_route('admin.dashboard.index')->with('delete_success', $doctor);
     }
 

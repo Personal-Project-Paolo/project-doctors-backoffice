@@ -19,6 +19,20 @@ class DoctorsTableSeeder extends Seeder
 
         foreach ($doctors as $arrDoctors){
             $slug = Doctor::slugger($arrDoctors['name']);
+            $averageRating = 0;
+
+            if (isset($arrDoctors['reviews'])) {
+                $totalRatings = 0;
+                $numberOfRatings = count($arrDoctors['reviews']);
+
+                foreach ($arrDoctors['reviews'] as $review) {
+                    $totalRatings += $reviews['valutation'];
+                }
+
+                if ($numberOfRatings > 0) {
+                    $averageRating = $totalRatings / $numberOfRatings;
+                }
+            }
 
             $doctor = Doctor::create([
 
@@ -30,6 +44,7 @@ class DoctorsTableSeeder extends Seeder
                 "image"             => $arrDoctors ['image'],
                 "performance"       => $arrDoctors ['performance'],
                 "promotion_counter" => count($arrDoctors["promotions"]),
+                "averageRating"     => $averageRating,
 
             ]);
             $doctor->promotions()->sync($arrDoctors['promotions']);
