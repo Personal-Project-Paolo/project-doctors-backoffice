@@ -74,6 +74,21 @@ class Doctor extends Model
         return $slug;
     }
 
+    public function calculateAverageRating()  {
+        $totalRatings = 0;
+        $numberOfRatings = count($this->reviews);
+
+        if ($numberOfRatings === 0) {
+           return 0;
+        }
+
+        foreach ($this->reviews as $review) {
+          $totalRatings += $review['valutation'];
+        }
+
+        return $totalRatings / $numberOfRatings;
+    }
+
 }
 
 

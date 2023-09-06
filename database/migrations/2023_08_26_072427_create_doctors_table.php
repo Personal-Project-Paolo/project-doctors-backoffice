@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('performance');
             $table->integer('promotion_counter')->nullable()->default(0);
+            $table->integer('averageRating')->nullable()->default(0);
 
             $table->softDeletes();
 
