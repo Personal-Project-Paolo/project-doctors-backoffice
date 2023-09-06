@@ -2,58 +2,59 @@
 
 namespace App\Mail;
 
+use App\Models\Doctor;
+use App\Models\Message;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class MailToLead extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $lead;
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($lead)
+    public $message;
+
+    public $doctor;
+
+    public function __construct(Message $message, Doctor $doctor)
     {
-        $this->lead = $lead;
+        $this->message = $message;
+        $this->doctor = $doctor;
     }
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
+
+
+    public function build()
+    {
+        return $this->from('tua-email@example.com')
+            ->subject('Nuovo Messaggio')
+            ->view('emails.new-message')
+            ->with([
+                'message' => $this->message,
+                'doctor' => $this->doctor,
+                // Altri dati necessari per la vista email
+            ]);
+    }
     public function envelope()
     {
         return new Envelope(
-            replyTo: $this->lead->address,
-            subject: 'Richiesta di informazionei ricevuta ' . $this->lead->name,
+            replyTo: $this->message->email,
+            subject: 'Richiesta di informazionei ricevuta ' . $this->message->name,
         );
     }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
+
     public function content()
     {
         return new Content(
-            view: 'emails.mail-to-lead',
+            view: 'emails.new-message',
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
+
     public function attachments()
     {
         return [];

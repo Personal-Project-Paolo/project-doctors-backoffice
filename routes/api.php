@@ -32,5 +32,6 @@ Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.ind
 
 
 // Qui sotto route da sistemare per mail trap
+Route::post('messages/', [MessageController::class, 'store'])->name('api.messages.store');
 
-Route::post('leads/', [LeadController::class, 'store'])->name('api.leads.store');
+// Route::post('leads', [LeadController::class, 'store'])->name('api.leads.store');
