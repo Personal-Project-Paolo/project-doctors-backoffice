@@ -1,22 +1,16 @@
 <?php
-return[
-    [
-        "name"   => "bronze",
-        "description" => "Questo pacchetto ti offre 24 ore di sponsorizzazione",
-        "time" => "24",
-        "price" => "2.99",
 
+return [
+    [
+        'type'                  => 'Gold',
+        'price'                 => 20,
     ],
     [
-        "name"   => "silver",
-        "description" => "Questo pacchetto ti offre 72 ore di sponsorizzazione",
-        "time" => "72",
-        "price" => "5.99",
+        'type'                  => 'Silver',
+        'price'                 => 10,
     ],
     [
-        "name"   => "gold",
-        "description" => "Questo pacchetto ti offre 144 ore di sponsorizzazione",
-        "time" => "144",
-        "price" => "9.99",
+        'type'                  => 'Bronze',
+        'price'                 => 5,
     ],
 ];

@@ -6,11 +6,12 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\BraintreeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guest\PageController as GuestPageController;
-use App\Http\Controllers\Admin\SponsorshipController as SponsorshipController;
+
 
 
 /*
@@ -42,8 +43,8 @@ Route::middleware(['auth', 'verified'])
             Route::resource('promotions', PromotionController::class);
             Route::resource('dashboard',DashboardController::class);
             
-           
-
+            Route::any('/payment', [BraintreeController::class, 'token'])->name('doctors.payment');
+            Route::any('/payment/checkout', [BraintreeController::class, 'pay'])->name('doctors.checkout');
 });
 
 Route::middleware('auth')
