@@ -122,27 +122,6 @@
                                     @error('curriculum_vitae') {{ $message }} @enderror
                                 </div>
                             </div>
-
-                             <!-- Promozioni -->
-
-                            <div class="mb-4 sm:col-span-3">
-                                <h6 class="text-lg font-medium">Sponsors</h6>
-            
-                                    <div class="flex items-center mb-2">
-                                        
-                                        <select class="form-select mt-1 block w-full py-2 px-3 border  bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm @error('promotion_id') border-red-500 @enderror" id="promotion" name="promotion_id">
-                                            <option selected>Change promotion</option>
-            
-                                            @foreach ($promotions as $promotion)
-                                            <option value="{{ $promotion->id }}">{{ $promotion->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-            
-                                @error('promotions')
-                                    <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
-                                @enderror
-                            </div>
                             
                         </div>
                         

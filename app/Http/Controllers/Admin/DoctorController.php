@@ -69,8 +69,6 @@ class DoctorController extends Controller
             $newDoctor->image = $imagePath;
         }
 
-        $newDoctor->promotions()->sync($data['promotions'] ?? []);
-
         $newDoctor->save();
 
         return redirect()->route('admin.doctors.show', ['doctor' => $newDoctor]);
@@ -135,10 +133,6 @@ class DoctorController extends Controller
 
         $doctor->telephone = $data['telephone'];
         $doctor->performance = $data['performance'];
-
-
-
-        $doctor->promotions()->sync($data['promotions'] ?? []);
 
         $doctor->update();
 
