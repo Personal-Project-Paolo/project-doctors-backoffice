@@ -12,7 +12,7 @@
                             class="h-96 w-full object-cover rounded-lg shadow-md">
                         </div>
 
-                        <div class="p-6  flex justify-center">
+                        <div class="p-6  flex justify-center " >
                             <div>
                                 <x-nav-link :href="route('admin.messages.index')" :active="request()->routeIs('messages')">
                                     <button type="button" class=" px-8 py-3 font-semibold my-btn ">
@@ -23,7 +23,7 @@
         
                             <div>
                                 <x-nav-link :href="route('admin.reviews.index')" :active="request()->routeIs('reviews')">
-                                    <button type="button" class=" px-8 py-3 font-semibold my-btn">
+                                    <button type="button" class=" px-8 py-3 font-semibold my-btn"  >
                                          <span >{{ __('Reviews') }}</span>
                                     </button>
                                 </x-nav-link>    
@@ -31,7 +31,7 @@
                             
                         </div>
 
-                        <div class="p-6 flex justify-center">
+                        <div class="p-6 w-90 flex justify-center">
                             @auth
                                 @if(auth()->user()->doctor) <!-- Verifica se l'utente è associato a un dottore -->
                                     <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
@@ -57,7 +57,7 @@
                       
                     </div>
                     <div class="col-span-3 md:col-span-2 lg:col-span-1  ">
-                        <div class="pl-20">
+                        <div>
                             <p class="text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 text-gray-800">{{$doctor->user->name}}</p>
                             <p class=" text-4xl md:text-5xl lg:text-6xl font-semibold mb-2 text-gray-800">{{$doctor->user->lastname}}</p>
                             <p>Email: <span class="px-2 text-lg  font-black">{{$doctor->user->email}}</span></p>
@@ -67,7 +67,7 @@
                             <span class=" flex flex-col justify-center ">
                                 @if ($doctor->curriculum_vitae)
                                     <span>
-                                        <a class=" text-sm md:text-base  px-3 py-1 rounded-full mr-2 mb-2  link-CV " href="{{ $doctor->curriculum_vitae }}">Link Curriculum</a>
+                                        <a class=" text-sm md:text-base rounded-full link-CV " href="{{ $doctor->curriculum_vitae }}">Link Curriculum</a>
                                     </span>
                                 @endif
                             </span>
@@ -83,7 +83,7 @@
                     </div>
                
                     <div class="col-span-3 md:col-span-2 lg:col-span-1 ">
-                        <div class="px-2 py-4 text-justify w-100 flex justify-center ">
+                        <div class="px-2 py-4 text-justify w-100 flex flex-col ">
                             @foreach ($doctor->user->specializations as $specialization)
                                <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization">{{$specialization->name}}</span>
                            @endforeach
@@ -128,7 +128,7 @@
     }
 
     .link-CV:hover{
-        background-color: lightgray  ;
+        color: #01bdcc;
     }
     .my-btn{
         background-color: #01bdcc;
@@ -137,6 +137,8 @@
         border-radius: .5rem;
         width: 100%;
         margin-left: 1rem;
+        
+
    }
 
    .my-btn:hover{
