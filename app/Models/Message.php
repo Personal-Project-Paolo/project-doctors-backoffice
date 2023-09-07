@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Message extends Model
@@ -14,9 +14,8 @@ class Message extends Model
 
     public $timestamps = false;
 
-    public function user()
+    public function doctor()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Doctor::class);
     }
-
 }

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\ReviewController;
@@ -31,3 +32,9 @@ Route::get('specializations', [SpecializationController::class, 'index'])->name(
 Route::get('messages', [MessageController::class, 'index'])->name('api.messages.index');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.index');
+
+
+// Qui sotto route da sistemare per mail trap
+Route::post('messages/', [MessageController::class, 'store'])->name('api.messages.store');
+
+// Route::post('leads', [LeadController::class, 'store'])->name('api.leads.store');
