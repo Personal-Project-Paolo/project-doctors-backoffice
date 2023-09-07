@@ -1,66 +1,76 @@
 <x-app-layout>
+
+    
     @section('contents')
-
-    <div class="dark:text-gray-100">
-        <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Recensioni</h2>
-
-        <div>
-            <table class="w-full p-6 text-xs text-left whitespace-nowrap">
-                <colgroup>
-                    <col class="w-5">
-                    <col>
-                    <col class="w-5">
-                </colgroup>
-                <thead>
-                    <tr class="dark:bg-gray-700">
-                        <th class="p-2">Nome</th>
-                        <th class="p-2">Voto</th>
-                        <th class="p-2">Testo</th> 
-                    </tr>
-                </thead>
-                <tbody class="border-b dark:bg-gray-900 dark:border-gray-700">
-                    @foreach ($reviews as $review)
-                        <tr>
-                            <td class="px-2 py-2">
-                                <p>{{ $review->name }}</p>
-                            </td>
-                            <td class="px-2 py-2">
-                                <p>{{ $review->valutation }}</p>
-                            </td>
-                            <td class="px-2 py-2">
-                                <p>{{ $review->review }}</p>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-    @endsection
-{{-- @section('content')
-
-@section('title', 'Recensioni')
-
-
-
-<div class="container">
-        <div class="text-center text-review-index p-3">
-            <h1>Le tue recensioni</h1>
-        </div>
-        @foreach ($reviews as $review)
-        <div class="card mb-3 shadow-lg">
-            <div class="card bg-review  p-3 text-start">
-                <div class="text text-light my-4">
-                    <h4 class="card-title fw-bold ">{{ $review->name }} {{ $review->surname }}</h4>
-                    <p class="mb-3">Voto: {{ $review->vote }}</p>
-                    <p>{{ $review->text }}</p>
-                </div>
+        <div class="bg">
+            <div class="dark:text-gray-100 contain ">
+                <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Recensioni</h2>
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            Voto
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Nome
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Recensione
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                                        @foreach ($reviews as $review)
+                                                    <tr>
+                                                        <td class="px-9 py-4">
+                                                            <p>{{ $review->valutation }}</p>
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            <p>{{ $review->name }}</p>
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            <p>{{ $review->review }}</p>
+                                                        </td>
+                                                    </tr>
+                                        @endforeach
+                                    </tr>   
+                                </tbody>
+                            </table>
+                        </div>
+                          
             </div>
         </div>
-        @endforeach
-    </div>
-</div>
-
-@endsection --}}
+        
+    @endsection
 
 </x-app-layout>
+
+
+            <style>
+
+                .bg{
+                    width: 100%;
+                    background-image: url('https://us.123rf.com/450wm/wstockstudio/wstockstudio1707/wstockstudio170700042/81669810-stetoscopio-isolato-su-sfondo-nero-scrivania-di-medici-sterili-accessori-medici-sullo-sfondo-nero.jpg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 100vh;
+                    padding-top: 4.5rem;
+                    text-align: center;
+                }
+                .contain{
+                    width: 70%;
+                    background-color: white;
+                    margin: auto;
+                    padding: 1rem;
+                    border-radius: 1rem;
+                }
+
+                h2{
+                    color: #01bdcc;
+                 }
+            </style>
+
+
+
