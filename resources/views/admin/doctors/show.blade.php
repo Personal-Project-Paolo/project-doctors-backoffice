@@ -85,7 +85,7 @@
                     <div class="col-span-3 md:col-span-2 lg:col-span-1 ">
                         <div class="px-2 py-4 text-justify w-100 flex flex-col ">
                             @foreach ($doctor->user->specializations as $specialization)
-                               <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization">{{$specialization->name}}</span>
+                               <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization ">{{$specialization->name}}</span>
                            @endforeach
                         </div>  
                     </div>
@@ -120,6 +120,7 @@
         border: 2px solid white;
         border-radius: 2rem;
     }
+
 
     .link-CV{
         color: black;
