@@ -39,5 +39,10 @@ return new class extends Migration
             $table->dropColumn(('doctor_id'));
         });
 
+        // Schema::table('messages', function(Blueprint $table){
+        //     $table->dropForeign(['doctor_id']); // Rimuovi la chiave esterna correttamente
+        //     $table->dropColumn('doctor_id'); // Rimuovi il campo correttamente
+        // });
+
     }
 };
