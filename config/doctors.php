@@ -324,7 +324,7 @@ return [
         "name" => "Emmett",
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
-        "image" => "Profile_IMG/Emmet.jpg",
+        "image" => "Profile_IMG/Emmett.jpg",
         "performance" => "",
         "promotions" => [],
         "specializations" => [15],
@@ -404,7 +404,7 @@ return [
         "image" => "Profile_IMG/April.jpg",
         "performance" => "",
         "promotions" => [],
-        "specializations" => [3, 4],
+        "specializations" => [3, 5],
     ],
 
     [

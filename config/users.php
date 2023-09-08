@@ -350,7 +350,7 @@ return [
         "lastname" => "Kepner",
         "address" => "Via numero 39 - Città 39",
         
-        "specializations" => [3, 4],
+        "specializations" => [3, 5],
     ],
     [
         "email" => "jowilson@mail.com",
