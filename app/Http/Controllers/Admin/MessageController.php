@@ -93,6 +93,6 @@ class MessageController extends Controller
             $user->update();
         }
         $message->delete();
-        return to_route(route('admin.messsages.index'));
+        return to_route(route('admin.messages.index'));
     }
 }

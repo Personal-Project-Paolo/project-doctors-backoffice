@@ -15,7 +15,7 @@ class MessageController extends Controller
     private $validations = [
         'doctor_id'        => 'required|integer',
         'email'            => 'required|email|max:250',
-        'message'          => 'required|string',
+        'text'             => 'required|string',
     ];
 
     public function index()
@@ -28,7 +28,7 @@ class MessageController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $slug)
     {
         $data = $request->all();
 
@@ -41,16 +41,8 @@ class MessageController extends Controller
             ]);
         }
 
-        // salvare i dati del message nel DB
-
-        $newMessage = new Message();
-
-        $newMessage->doctor_id   = $data['doctor_id'];
-        $newMessage->email          = $data['email'];
-        $newMessage->text        = $data['text'];
-        $newMessage->save();
-
-        $doctor = Doctor::find($data['doctor']);
+         // Ottenere l'ID del dottore dallo slug
+        $doctor = Doctor::where('slug', $slug)->first();
 
         if (!$doctor) {
             // Gestisci il caso in cui il dottore non esista
@@ -60,12 +52,22 @@ class MessageController extends Controller
             ], 404);
         }
 
+        // salvare i dati del message nel DB
+
+        $newMessage = new Message();
+
+        $newMessage->doctor_id      = $doctor->id;
+        $newMessage->email          = $data['email'];
+        $newMessage->text           = $data['text'];
+
+        $newMessage->save();
+
         // ritornare un valore di successo al frontend
 
         try {
             // inviare il nuovo messaggio
 
-            Mail::to($newMessage->email)->send(new MailToLead($newMessage, $doctor));
+            Mail::to($newMessage->email)->send(new MailToLead($newMessage, $doctor))->view('admin.messages.index');
 
             return response()->json([
                 'success' => true,
