@@ -19,7 +19,7 @@ class UserController extends Controller
         $specializationId = $request->query('specialization');
 
 
-        $query = User::with('specializations', 'doctor');
+        $query = User::with('specializations', 'doctor', 'doctor.promotions');
 
         if ($searchString) {
             $query = $query->where(function ($query) use ($searchString) {

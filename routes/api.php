@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\ReviewController;
 use App\Http\Controllers\Api\MessageController;
+use App\Http\Controllers\Api\PromotionController;
 use App\Http\Controllers\Api\SpecializationController;
 
 /*
@@ -26,6 +27,8 @@ Route::get('doctors/{doctor}', [DoctorController::class, 'show'])->name('api.doc
 
 Route::get('users', [UserController::class, 'index'])->name('api.users.index');
 Route::get('users/{user}', [UserController::class, 'show'])->name('api.users.show');
+
+Route::get('promotions', [PromotionController::class, 'index'])->name('api.promotions.index');
 
 Route::get('specializations', [SpecializationController::class, 'index'])->name('api.specializations.index');
 
