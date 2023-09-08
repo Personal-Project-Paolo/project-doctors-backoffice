@@ -59,6 +59,29 @@
             <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
         </div>
 
+        <div>
+            <x-input-label for="address" :value="__('address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
+
+        {{-- Add checkboxes for user technologies --}}
+			<div class="mb-3">
+				<h4 class="fw-bold">Technologies:</h4>
+				@foreach ($specializations as $specialization)
+					<div class="mb-3 form-check form-check-inline">
+						<input type="checkbox" class="form-check-input" id="specialization{{ $specialization->id }}" value="{{ $specialization->id }}"
+							name="specializations[]" @if (in_array($specialization->id, old('specializations', $user->specializations->pluck('id')->all()))) checked @endif>
+						<label class="form-check-label" for="specialization{{ $specialization->id }}">{{ $specialization->name }}</label>
+					</div>
+				@endforeach
+			</div>
+
+
+        <div class="mb-3">
+            
+        </div>
+
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
