@@ -70,9 +70,6 @@
                 </table>
             </div>
             
-            {{-- <div class="my-4">
-                {{ $projects->links('vendor.pagination.tailwind') }}
-            </div> --}}
         </div>
     
     @endsection
