@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Validator;
 class MessageController extends Controller
 {
     private $validations = [
-        'doctor_slug' => 'required|exists:doctors,slug',
-        'email'       => 'required|email|max:250',
-        'text'        => 'required|string',
+        'doctor_id'        => 'required|integer',
+        'email'            => 'required|email|max:250',
+        'text'             => 'required|string',
     ];
 
     public function index()
@@ -28,39 +28,56 @@ class MessageController extends Controller
         ]);
     }
 
-    public function store(Request $request, $doctor_slug)
+    public function store(Request $request, $slug)
     {
-        $data = $request->validate($this->validations);
+        $data = $request->all();
 
-        // Ottenere l'ID del dottore dallo slug
-        $doctor = Doctor::where('slug', $doctor_slug)->first();
+        $validator = Validator::make($data, $this->validations);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success'  => false,
+                'errors'   => $validator->errors(),
+            ]);
+        }
+
+         // Ottenere l'ID del dottore dallo slug
+        $doctor = Doctor::where('slug', $slug)->first();
 
         if (!$doctor) {
             // Gestisci il caso in cui il dottore non esista
             return response()->json([
                 'success' => false,
-                'error'   => 'Il dottore specificato non esiste',
+                'error' => 'Il dottore specificato non esiste',
             ], 404);
         }
 
-        // Salvare i dati del messaggio nel DB
-        $message = new Message($data);
-        $message->doctor_id = $doctor->id;
-        $message->save();
+        // salvare i dati del message nel DB
 
-        // Invia l'email
+        $newMessage = new Message();
+
+        $newMessage->doctor_id      = $doctor->id;
+        $newMessage->email          = $data['email'];
+        $newMessage->text           = $data['text'];
+
+        $newMessage->save();
+
+        // ritornare un valore di successo al frontend
+
         try {
-            Mail::to($message->email)->send(new MailToLead($message, $doctor))->view('admin.messages.index');
+            // inviare il nuovo messaggio
+
+            Mail::to($newMessage->email)->send(new MailToLead($newMessage, $doctor))->view('admin.messages.index');
 
             return response()->json([
                 'success' => true,
                 'message' => 'Messaggio inviato con successo',
-                'doctor'  => $doctor,
+                'doctor' => $doctor,
             ]);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
-                'error'   => 'Errore durante l\'invio dell\'email: ' . $e->getMessage(),
+                'error' => 'Errore durante l\'invio dell\'email: ' . $e->getMessage(),
             ], 500);
         }
     }
