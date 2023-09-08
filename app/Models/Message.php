@@ -12,7 +12,6 @@ class Message extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public $timestamps = false;
 
     public function doctor()
     {
