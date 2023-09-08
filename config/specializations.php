@@ -18,78 +18,86 @@ return[
     ],
     [
         // 5
-        "name" => "Oncologia",
-    ],
-    [
-        // 6
         "name" => "Ematologia",
     ],
     [
-        // 7
+        // 6
         "name" => "Psichiatria",
     ],
     [
-        // 8
+        // 7
         "name" => "Dermatologia",
     ],
     [
-        // 9
+        // 8
         "name" => "Neurologia",
     ],
     [
-        // 10
+        // 9
         "name" => "Ginecologia",
     ],
     [
-        // 11
+        // 10
         "name" => "Medicina legale, del lavoro, igiene",
     ],
     [
-        // 12
+        // 11
         "name" => "Malattie infettive",
     ],
     [
-        // 13
+        // 12
         "name" => "Endocrinologia",
     ],
     [
-        // 14
+        // 13
         "name" => "Chirurgia generale",
     ],
     [
-        // 15
+        // 14
         "name" => "Medicina di base",
     ],
     [
-        // 16
+        // 15
         "name" => "Diagnostica",
     ],
     [
-        // 17
+        // 16
         "name" => "Infettologia",
     ],
     [
-        // 18
+        // 17
         "name" => "Nefrologia",
     ],
     [
-        // 19
+        // 18
         "name" => "Oncologia",
     ],
     [
-        // 20
+        // 29
         "name" => "Immunologia",
     ],
     [
-        // 21
+        // 20
         "name" => "Terapia Intensiva",
     ],
     [
-        // 22
+        // 21
         "name" => "Chirurgia Plastica",
     ],
     [
-        // 23
+        // 22
         "name" => "Medicina Interna",
+    ],
+    [
+        // 23
+        "name" => "Odontoiatria",
+    ],
+    [
+        // 24
+        "name" => "Cardiochirurgia",
+    ],
+    [
+        // 25
+        "name" => "Neurochirurgia",
     ],
 ];
