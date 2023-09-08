@@ -8,12 +8,12 @@ return [
         'price'                 => 20,
     ],
     [
-        'name'                  => 'Gold',
+        'name'                  => 'Silver',
         'type'                  => 'Silver',
         'price'                 => 10,
     ],
     [
-        'name'                  => 'Gold',
+        'name'                  => 'Bronze',
         'type'                  => 'Bronze',
         'price'                 => 5,
     ],
