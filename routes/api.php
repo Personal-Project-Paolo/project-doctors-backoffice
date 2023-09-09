@@ -39,3 +39,7 @@ Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.ind
 
 // Qui sotto route da sistemare per mail trap
 Route::post('messages/{slug}', [MessageController::class, 'store'])->name('api.messages.store');
+
+// Rotta per inviare le valutazioni
+Route::post('reviews/{slug}', [ReviewController::class, 'store'])->name('api.reviews.store');
+
