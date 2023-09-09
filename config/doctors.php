@@ -412,7 +412,7 @@ return [
         "name" => "Jo",
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
-        "image" => "Profile_IMG/Jo.jpg",
+        "image" => "Profile_IMG/Jo.jpeg",
         "performance" => "",
         "promotions" => [],
         "specializations" => [11, 12, 13],

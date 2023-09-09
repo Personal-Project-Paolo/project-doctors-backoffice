@@ -33,6 +33,8 @@ Route::get('promotions', [PromotionController::class, 'index'])->name('api.promo
 Route::get('specializations', [SpecializationController::class, 'index'])->name('api.specializations.index');
 
 Route::get('messages', [MessageController::class, 'index'])->name('api.messages.index');
+Route::get('messages/trashed', [ProjectsController::class, 'trashed'])->name('messages.trashed');
+
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('api.reviews.index');
 

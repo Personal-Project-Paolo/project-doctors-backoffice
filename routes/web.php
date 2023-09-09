@@ -31,6 +31,7 @@ Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
 
 Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
+Route::get('/admin/messages/trashed', [MessageController::class, 'trashed'])->name('admin.messages.trashed');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
@@ -39,7 +40,11 @@ Route::middleware(['auth', 'verified'])
             Route::resource('doctors', DoctorController::class);
             Route::resource('users',   UserController::class);
             Route::resource('reviews', ReviewController::class);
+            
             Route::resource('messages', MessageController::class);
+
+        
+
             Route::resource('promotions', PromotionController::class);
             Route::resource('dashboard',DashboardController::class);
             

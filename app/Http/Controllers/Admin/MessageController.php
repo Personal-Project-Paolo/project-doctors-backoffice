@@ -80,19 +80,22 @@ class MessageController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Message $message)
     {
-        foreach ($message->users as $user){
-            $user->message_id =1;
-            $user->update();
+        foreach ($message->doctors as $doctor){
+            $doctor->message_id =1;
+            $doctor->update();
         }
         $message->delete();
-        return to_route(route('admin.messages.index'));
+        return redirect()->route('admin.messages.trashed')->with('delete_success', $message);
     }
+
+    // Redirect to Trashed view
+    public function trashed()
+    {
+        $messages = Message::onlyTrashed()->paginate(4);
+        return view('admin.messages.trashed', ['messages' => $messages]);
+    }
+
 }
