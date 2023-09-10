@@ -1,7 +1,5 @@
 <x-app-layout>
 
-    
-
     @section('contents')
 
         @if(session('trash_success'))
