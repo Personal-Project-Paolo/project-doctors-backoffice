@@ -5,50 +5,53 @@
         </h2>
     </x-slot> --}}
 
-   
-            @section('contents')  
-            <div class="my-container">
-                    <div class="btn-container">
-                        @auth
-                            @unless (auth()->user()->doctor)
-                                <button type="button" class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">
-                                    <a href="{{ route('admin.doctors.create') }}">Create a new Profile Doctor</a>
-                                </button>
-                            @endunless
 
-                            @if (auth()->user()->doctor)
-                                <!-- Verifica se l'utente è associato a un dottore -->
-                                <a href="{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor]) }}">
-                                    <button type="button" class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">Visualizza
-                                        Profilo Dottore</button>
-                                </a>
+    @section('contents')
+        <div class="my-container">
+            <div class="btn-container">
+                @auth
+                    @unless (auth()->user()->doctor)
+                        <button type="button" class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">
+                            <a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a>
+                        </button>
+                    @endunless
 
-                                <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
-                                    <button type="button" class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">Edita Profilo
-                                        Dottore</button>
-                                </a>
-                            @endif
-                        @endauth
-                    </div>
-                </div>
-        @endsection
-   
+                    @if (auth()->user()->doctor)
+                        <!-- Verifica se l'utente è associato a un dottore -->
+                        <a href="{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor]) }}">
+                            <button type="button"
+                                class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">Visualizza
+                                Profilo Dottore</button>
+                        </a>
 
-        
+                        <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
+                            <button type="button"
+                                class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">Edita Profilo
+                                Dottore</button>
+                        </a>
+                    @endif
+                @endauth
+            </div>
+        </div>
+    @endsection
 
-   
+
+
+
+
 
 </x-app-layout>
 <style>
-    .my-container{
+    .my-container {
         position: relative;
         height: 100vh;
     }
-    .btn-container{    
-            height: 30%;
-            width: 20%;
-            position: absolute;
-            bottom: 30%;
-            right: 15%;
+
+    .btn-container {
+        height: 30%;
+        width: 20%;
+        position: absolute;
+        bottom: 30%;
+        right: 15%;
     }
 </style>
