@@ -106,10 +106,10 @@
 
 <style>
     .promotion{
-        color: #7ce2e0;
-        border: 2px solid #7ce2e0;
+        color: white;
+        background-color: black;
+        border: 2px solid white;
         border-radius: 2rem;
-        
     }
     .specialization{
         color: white;
