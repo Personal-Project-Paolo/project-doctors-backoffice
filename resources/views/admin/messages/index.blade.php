@@ -1,10 +1,20 @@
+<script>
+function closeTrashSuccessMessage() {
+    var message = document.querySelector('.bg-red-600');
+    if (message) {
+        message.style.display = 'none'; // Nasconde il messaggio
+    }
+}
+</script>
+
 <x-app-layout>
 
     @section('contents')
 
         @if(session('trash_success'))
-            <div class="bg-red-600 text-white px-4 py-2 mt-4 rounded">
-                <p>Il messaggio è stato spostato nel cestino</p>
+            <div class="bg-red-600 text-white px-4 py-2 mt-4 rounded relative">
+                <p class="inline-block">Il messaggio è stato spostato nel cestino</p>
+                <button onclick="closeTrashSuccessMessage()" class="absolute top-1 right-2 px-2 py-1 text-white hover:bg-red-700 focus:outline-none">Chiudi</button>
             </div>
         @endif
         <div class="bg">
@@ -34,7 +44,6 @@
                                             <tr>
                                                 <td class="px-6 py-4">
                                                     <p>{{ $message->created_at }}</p>
-                                                    
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <p>{{ $message->email }}</p>
@@ -43,17 +52,23 @@
                                                 <td class="px-6 py-4">
                                                     <p>{{ $message->text }}</p>
                                                 </td>
-                                                <td>
-                                                    <form
-                                                    action="{{ route('admin.messages.destroy', ['message' => $message->id]) }}"
-                                                    method="POST"
-                                                    class="d-inline-block"
-                                                    id="confirm-delete"
-                                                >
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="mx-4 px-8 py-3 font-semibold my-second-btn bg-red-500 hover:bg-red-600 text-white rounded transition duration-300 ease-in-out transform hover:scale-105">Elimina</button>
-                                                </form>
+                                                <td >
+                                                    <div class="flex max-h-12">
+                                                        <button class="mx-1 px-8 py-3 font-semibold my-second-btn  text-white rounded transition duration-300 ease-in-out transform hover:scale-105">
+                                                            <a class="button mx-1" href="{{ route('admin.messages.show', ['message' => $message]) }}">View</a>
+                                                        </button>
+                                                        <form
+                                                        action="{{ route('admin.messages.destroy', ['message' => $message->id]) }}"
+                                                        method="POST"
+                                                        class="d-inline-block"
+                                                        id="confirm-delete"
+                                                        >
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button class="mx-1 px-8 py-3 font-semibold my-second-btn text-white rounded transition duration-300 ease-in-out transform hover:scale-105">Elimina</button>
+                                                        </form>
+                                                    </div>
+                                                    
                                                 </td>
                                             </tr>
                                 @endforeach

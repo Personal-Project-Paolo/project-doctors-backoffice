@@ -1,35 +1,32 @@
+<script>
+    function closeDeleteSuccessMessage() {
+        var message = document.querySelector('.bg-green-500');
+        if (message) {
+            message.style.display = 'none'; // Nasconde il messaggio
+        }
+    };
+    function closeRestoreMessage() {
+        var message = document.querySelector('.bg-green-500');
+        message.style.display = 'none';
+    };
+</script>
 <x-app-layout>
 
 @section('contents')
 
     @if(session('delete_success'))
-        <div class="bg-green-500 text-white px-4 py-2 mt-4 rounded">
+        <div class="bg-green-500 text-white px-4 py-2 mt-4 rounded relative">
             {{ session('delete_success') }}
+            <button onclick="closeDeleteSuccessMessage()" class="absolute top-1 right-2 px-2 py-1 text-white hover:bg-green-700 focus:outline-none">Chiudi</button>
+        </div>
+    @endif
+    @if(session('restore_success'))
+        <div class="bg-green-500 text-white px-4 py-2 mt-4 rounded relative">
+            <p class="inline-block">{{ session('restore_success') }}</p>
+            <button class="absolute right-2 top-2 text-white hover:text-gray-200" onclick="closeRestoreMessage()">X</button>
         </div>
     @endif
 
-    <!-- Modale di conferma per eliminazione definitiva -->
-    <div id="deleteConfirmationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-        <div class="modal-container bg-white dark:bg-gray-900 dark:text-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-            <!-- Contenuto del modale -->
-            <div class="modal-content py-4 text-left px-6">
-                <div class="modal-header">
-                    <h2 class="text-xl font-semibold">Conferma eliminazione definitiva</h2>
-                </div>
-                <div class="modal-body mt-3">
-                    <p>Sei sicuro di voler eliminare definitivamente questo messaggio?</p>
-                </div>
-                <div class="modal-footer mt-4">
-                    <button onclick="closeDeleteConfirmationModal()" class="text-gray-500 hover:text-gray-700 px-4 py-2 mr-2 focus:outline-none">Annulla</button>
-                    <form id="deleteForm" action="" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-700">Elimina definitivamente</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <div class="bg">
         <div class="dark:text-gray-100 contain ">
@@ -47,6 +44,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Testo
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                Azioni
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,7 +55,6 @@
                                         <tr>
                                             <td class="px-6 py-4">
                                                 <p>{{ $message->created_at }}</p>
-                                                
                                             </td>
                                             <td class="px-6 py-4">
                                                 <p>{{ $message->email }}</p>
@@ -64,11 +63,18 @@
                                             <td class="px-6 py-4">
                                                 <p>{{ $message->text }}</p>
                                             </td>
-                                            <td class="px-6 py-4">
+                                            <td class="px-6 py-4 flex">
+                                                <form action="{{ route('admin.messages.restore', ['id' => $message->id]) }}" method="POST" class="d-inline-block">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="mx-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-700">
+                                                        Ripristina
+                                                    </button>
+                                                </form>
                                                 <form action="{{ route('admin.messages.trashed.hard-delete', ['id' => $message->id]) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-700">
+                                                    <button type="submit" class="mx-1 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-700">
                                                         Elimina definitivamente
                                                     </button>
                                                 </form>

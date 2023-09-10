@@ -46,15 +46,10 @@ class MessageController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Message  $message
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function show(Message $message)
     {
-        return view ('admin.messages.show', compact('messages'));
+        return view ('admin.messages.show', compact('message'));
     }
 
     /**
@@ -79,17 +74,6 @@ class MessageController extends Controller
     {
         //
     }
-
-    
-    // public function destroy(Message $message)
-    // {
-    //     foreach ($message->doctors as $doctor){
-    //         $doctor->message_id =1;
-    //         $doctor->update();
-    //     }
-    //     $message->delete();
-    //     return redirect()->route('admin.messages.trashed')->with('delete_success', $message);
-    // }
 
     public function destroy(Message $message)
     {   
@@ -125,7 +109,27 @@ class MessageController extends Controller
         return view('admin.messages.trashed', ['messages' => $messages]);
     }
 
+    public function restore($id)
+{
+    // Trova il messaggio eliminato
+    $message = Message::onlyTrashed()->find($id);
 
+        // Verifica se il messaggio esiste tra quelli eliminati
+        if (!$message) {
+            return redirect()->route('admin.messages.trashed')->with('error', 'Messaggio nel cestino non trovato.');
+        }
+
+        // Verifica se il messaggio appartiene al dottore loggato
+        if ($message->doctor_id === Auth::user()->id) {
+            // Ripristina il messaggio (annulla il soft delete)
+            $message->restore();
+
+            return redirect()->route('admin.messages.trashed')->with('restore_success', 'Messaggio ripristinato con successo.');
+        } else {
+            // Il messaggio nel cestino non appartiene al dottore loggato, gestisci l'errore qui
+            return redirect()->route('admin.messages.trashed')->with('error', 'Non sei autorizzato a ripristinare questo messaggio.');
+        }
+    }
 
     public function Harddelete($id)
     {

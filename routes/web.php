@@ -37,6 +37,7 @@ Route::get('/admin/messages/trashed', [MessageController::class, 'trashed'])->na
 
 // Rotta per eliminare un messaggio specifico
 Route::delete('/admin/messages/{message}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
+Route::put('/admin/messages/{id}/restore', [MessageController::class, 'restore'])->name('admin.messages.restore');
 Route::delete('/admin/messages/trashed/{id}/delete', [MessageController::class, 'Harddelete'])->name('admin.messages.trashed.hard-delete');
 
 
