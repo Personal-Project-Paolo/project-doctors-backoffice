@@ -40,29 +40,15 @@
 
 </x-app-layout>
 <style>
-
-    
     .my-container{
         position: relative;
-        background-image: url('https://us.123rf.com/450wm/wstockstudio/wstockstudio1707/wstockstudio170700042/81669810-stetoscopio-isolato-su-sfondo-nero-scrivania-di-medici-sterili-accessori-medici-sullo-sfondo-nero.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
         height: 100vh;
     }
-
-    .btn-container{
-            
+    .btn-container{    
             height: 30%;
             width: 20%;
             position: absolute;
             bottom: 30%;
             right: 15%;
-    }
-    .my-btn{
-            background-color: #01bdcc;
-            color: white;
-            border: 2px solid white;
-            border-radius: .5rem;
-            width: 100%;
     }
 </style>

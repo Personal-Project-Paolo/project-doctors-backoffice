@@ -1,8 +1,8 @@
 <x-app-layout>
     @section('contents')
 
-        <section class="m-5 p-6 dark:bg-gray-800 dark:text-gray-50">
-            <div class="p-5">
+        <section class="py-6 px-4 sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8" style="background-color:  rgba(242, 249, 247, 0.8);;">
                 <h1 style="font-weight:700; font-size:20px">Create a new Profile</h1>
                 <form 
                 method="post" 
@@ -128,7 +128,7 @@
                     </fieldset>
 
                     <div class="mb-4">
-                        <button type="submit" class="px-4 py-2 text-white bg-green-700 rounded">Invia</button>
+                        <button type="submit" class="px-4 py-2 text-white bg-green-700 rounded my-btn">Invia</button>
                     </div>
 
                 </form>
