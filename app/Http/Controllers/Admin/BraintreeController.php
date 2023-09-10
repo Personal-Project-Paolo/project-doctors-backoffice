@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Braintree\Gateway;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use Braintree\Gateway;
 use App\Models\Promotion;
+use Illuminate\Http\Request;
 use Psy\Readline\Hoa\Console;
+use App\Http\Controllers\Controller;
 
 class BraintreeController extends Controller
 {
@@ -54,13 +54,23 @@ class BraintreeController extends Controller
         // dd($result);
         if ($result->success) {
             // Transazione avvenuta con successo, ora possiamo associare il dottore all'abbonamento
+            
+            $subscriptionDate = now(); // Imposta la data corrente
+            $promotionDuration = $promotion->duration; // Durata della promozione in ore
+            $expirationDate = $subscriptionDate->addHours($promotionDuration);
+
             $doctor->promotions()->attach($promotion->id, [
-                'subscription_date' => now() // Imposta la data corrente
+                'subscription_date' => now(),
+                'expiration_date' => $expirationDate,
             ]);
+
+            
+            
 
             return to_route('admin.doctors.payment')->with('transition_success', $result);
         } else {
             return redirect()->route('admin.doctors.payment')->with('transition_error', $result->message);
         }
     }
+
 }

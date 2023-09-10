@@ -18,7 +18,8 @@ return new class extends Migration
 
             $table->string('name');
             $table->string('type', 50);
-            $table->integer('price');
+            $table->decimal('price', 10, 2);
+            $table->integer('duration')->nullable();
             
 
             $table->softDeletes();
