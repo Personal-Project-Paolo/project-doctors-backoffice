@@ -1,24 +1,19 @@
 <x-app-layout>
     @section('contents')
 
-        <div class=" my-container flex flex-col justify-center ">
-                <div class="p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 card text-white">
-                    <h1 class="mb-3 font-xxlarge text-white-900 white:text-white-800 ">Benvenuto in BDoctors Dottor/Dottoressa {{ Auth::user()->lastname }}</h1>
-                    
-                    <p class="mb-3 font-medium text-white-900 white:text-white-800">
-                        Siamo lieti di darti il benvenuto nella nostra applicazione, 
-                        un potente strumento per semplificare la gestione dei tuoi pazienti e migliorare l'efficienza nella pratica medica. 
-                        Con questa applicazione, avrai accesso a una serie di strumenti e risorse utili per la tua professione.
-                        Raggiungi subito la tua dashboard.
-                    </p>
+        <div class=" my-container flex flex-col justify-center items-center ">
+                <div class="ml-4 p-6 border  rounded-lg shadow card flex flex-col justify-between ">
 
-                    
-                        <div>
-                            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="my-second-btn">
-                                {{ __('Dashboard') }}
-                            </x-nav-link>
-                        </div>
-                    
+                    <h1 class="mb-10 max-w-lg text-4xl font-semibold leading-normal">Benvenuto/a in BDoctors Dottor/Dottoressa <span class="text-6xl font-extrabold text-white-900 dark:text-white uppercase ">{{ Auth::user()->lastname }}</span></h1>
+                
+                    <p class="mb-3 max-w-lg text-3xl font-semibold ">
+                            Nella tua <span class="uppercase text-4xl">dasboard</span> potrai:      
+                    </p>
+                    <ul>
+                        <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i class="fa-solid fa-user-doctor my-icon"></i> Gestire </span>facilmente il tuo profilo</li>
+                        <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i class="fa-solid fa-envelope-open-text   my-icon"></i> Comunicare </span>in maniera sicura con i tuoi pazienti</li>
+                        <li class=""><span class="uppercase uppercase text-2xl"> <i class="fa-solid fa-people-group   my-icon"></i> Scegliere </span>il tuo piano di sponsorizzazionne</li>
+                    </ul>
                 </div>
         </div>
             
@@ -38,19 +33,21 @@
     .card{
         width: 50%;
         height: 70% ;
+        background-color: rgba(242, 249, 247, 0.5);
     }
 
-    .my-second-btn{
-        color: #01bdcc;
-        margin-left: 1rem;
-        border: 2px solid #01bdcc;
-        border-radius: .5rem;
-        width: 90%;
+    .my-icon{
+        background-color:  #01bdcc;
+        color: white;
+        border: 1px solid white;
+        border-radius: 1.5rem;
+        padding: .5rem;
    }
    
-   .my-second-btn:hover{
-        color: white;
-        background-color:  #01bdcc;
+   .my-icon:hover{
+        color: #01bdcc;
+        background-color: white;
+        border: 1px solid #01bdcc;
    }
 
 
