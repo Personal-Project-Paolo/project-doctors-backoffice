@@ -135,16 +135,13 @@
                     
                 </fieldset>
 
-                <div class="mb-4">
-                    <button type="submit">Salva</button>
-                </div>
-            
                 
-                
-
             </form>
-            
+            <div class="mb-4">
+                <button type="submit" class=" my-btn">Salva</button>
+            </div>
         </div>
+        
     </section>
 @endsection
 
@@ -154,8 +151,5 @@
     .invalid-feedback{
         color:red;
     }
-
-   
-  
 
 </style>

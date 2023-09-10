@@ -128,34 +128,5 @@
     .link-CV:hover{
         color: #01bdcc;
     }
-    .my-btn{
-        background-color: #01bdcc;
-        color: white;
-        border: 2px solid white;
-        border-radius: .5rem;
-        width: 100%;
-        margin-left: 2rem;
-   }
-   .my-btn:hover{
-        color: #01bdcc;
-        background-color: white;
-        border: 2px solid #01bdcc;
-      
-   }
-
-   .my-second-btn{
-        color: #01bdcc;
-        background-color: white;
-        border: 2px solid #01bdcc;
-        border-radius: .5rem;
-        margin-right: .5rem;
-      
-   }
-   
-   .my-second-btn:hover{
-        color: white;
-        background-color:  #01bdcc;
-   }
-
 
 </style>
