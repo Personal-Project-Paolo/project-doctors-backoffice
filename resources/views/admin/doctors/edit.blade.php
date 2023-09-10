@@ -2,7 +2,7 @@
 
 @section('contents')
     <section class="m-6 p-6 dark:bg-gray-800 dark:text-gray-50">
-        <div class="p-5">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8" style="background-color:  rgba(242, 249, 247, 0.8);;">
             <h1 style="font-weight:700; font-size:30px colour-text">Edit Profile Doctor</h1>
             <form 
             method="POST" 
@@ -18,7 +18,7 @@
 
                 <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div class="space-y-2 col-span-full lg:col-span-1">
-                        <p class="font-medium colour-text">Informations</p>
+                        <p class="font-medium ">Informations</p>
                         <p class="text-xs ">Put the information here to edit your profile</p>
                     </div>
 
@@ -57,7 +57,7 @@
                             </label>
                             <input 
                             type="text" 
-                            class="my-second-btn w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('telephone') is-invalid @enderror" 
+                            class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('telephone') is-invalid @enderror" 
                             id="telephone" 
                             name="telephone" 
                             value="{{ old('telephone', $doctor->telephone)}}">
@@ -75,7 +75,7 @@
                             </label>
                             <input 
                             type="text" 
-                            class=" my-second-btn w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('performance') is-invalid @enderror" 
+                            class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-control @error('performance') is-invalid @enderror" 
                             id="performance" 
                             name="performance" 
                             value="{{ old('performance', $doctor->performance)}}">
@@ -91,19 +91,19 @@
         
                 <fieldset class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
                     <div class="space-y-2 col-span-full lg:col-span-1">
-                        <p class="font-medium colour-text">Other Informations</p>
+                        <p class="font-medium">Other Informations</p>
                     </div>
                     <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
 
                         {{-- Immagine Profilo del Dottore --}}
 
                         <div class="col-span-full sm:col-span-3">
-                            <label for="image" class="form-label colour-text"style="font-weight:700; font-size:20px">
+                            <label for="image" class="form-label"style="font-weight:700; font-size:20px">
                                 Image
                             </label>
                             <div class="input-group mb-3">
                                 <input type="file" 
-                                class="form-control my-second-btn  @error('image') is-invalid @enderror" 
+                                class="form-control  @error('image') is-invalid @enderror" 
                                 id="image" 
                                 name="image" 
                                 accept="image/*">
@@ -120,7 +120,7 @@
                             <label for="curriculum_vitae" class="form-label  colour-text"style="font-weight:700; font-size:20px">
                                 Curriculum vitae
                             </label>
-                            <div class="input-group mb-3 my-second-btn">
+                            <div class="input-group mb-3">
                                 <input type="file" 
                                 class="form-control @error('curriculum_vitae') is-invalid @enderror" 
                                 id="curriculum_vitae" name="curriculum_vitae">
@@ -128,23 +128,25 @@
                             <div class="invalid-feedback">
                                 @error('curriculum_vitae') {{ $message }} @enderror
                             </div>
+                            <button type="submit" class="btn-edit">Salva</button>
                         </div>
                         
                     </div>
 
                     
-                </fieldset>
+                </fieldset>  
 
-                <div class="mb-4">
-                    <button type="submit" class="my-btn">Salva</button>
-                </div>
-            
-                
+
                 
 
-            </form>
+             </form>
+       
             
+               
+          
+       
         </div>
+        
     </section>
 @endsection
 
@@ -155,37 +157,9 @@
         color:red;
     }
 
-    .colour-text{
-        color: #01bdcc;
-    }
-
-    .my-btn{ 
-        width: 100%;
-        background-color: #01bdcc;
-        color: white;
-        border: 2px solid white;
-        border-radius: .5rem;
-       
-   }
-
-   .my-btn:hover{
-        color: #01bdcc;
-        background-color: white;
-        border: 2px solid #01bdcc;
-      
-   }
-
-
-   .my-second-btn{
-        color: black
-        margin-left: 1rem;
-        border: 2px solid #01bdcc;
-        border-radius: .5rem;
-        width: 90%;
-   }
-   
- 
-
   
+    .btn-edit {
+        background-color: green;
+    }
 
 </style>

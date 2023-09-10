@@ -1,11 +1,24 @@
 <x-app-layout>
-        @section('contents')
-          <div class="my-container">
-            <div class="title">
-                <h1>Ti diamo il benvenuto!</h1>
-            </div>
+    @section('contents')
+
+        <div class=" my-container flex flex-col justify-center items-center ">
+                <div class=" max-w-sm p-8 rounded-lg shadow card flex flex-col justify-around items-center ">
+                    <h1 class="text-4xl font-semibold leading-normal">Benvenuto/a in BDoctors Dottor/Dottoressa <span class="text-6xl font-extrabold text-white-900 dark:text-white uppercase ">{{ Auth::user()->lastname }}</span></h1>
+                    <div>
+                        <p class="mb-3 max-w-lg text-3xl font-semibold ">
+                            Nella tua <span class="uppercase text-4xl">dasboard</span> potrai:      
+                        </p>
+                        <ul>
+                            <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i class="fa-solid fa-user-doctor my-icon"></i> Gestire </span>facilmente il tuo profilo</li>
+                            <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i class="fa-solid fa-envelope-open-text   my-icon"></i> Comunicare </span>in maniera sicura con i tuoi pazienti</li>
+                            <li class=""><span class="uppercase uppercase text-2xl"> <i class="fa-solid fa-people-group   my-icon"></i> Scegliere </span>il tuo piano di sponsorizzazionne</li>
+                        </ul>
+                    </div>  
+                </div>
         </div>
-        @endsection
+            
+    @endsection
+
 </x-app-layout>
 
 
@@ -17,12 +30,25 @@
         height: 100vh;
         position: relative;
     }
-    .title{
-        /* margin-top: 6rem; */
-        margin-left: 4rem;
+    .card{
+        max-width: 50%;
+        max-height: 70% ;
+        background-color: rgba(242, 249, 247, 0.5);
     }
-    h1{
+
+    .my-icon{
+        background-color:  #01bdcc;
         color: white;
-        font-size: 5rem
-    }
+        border: 1px solid white;
+        border-radius: 1.5rem;
+        padding: .5rem;
+   }
+   
+   .my-icon:hover{
+        color: #01bdcc;
+        background-color: white;
+        border: 1px solid #01bdcc;
+   }
+
+
 </style>
