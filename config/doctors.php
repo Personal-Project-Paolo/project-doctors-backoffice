@@ -177,7 +177,7 @@ return [
         "telephone" => "1234567890",
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Shulz.jpg",
-        "performance" => " di diagnosi, cura e riabilitazione rese alla persona nell'esercizio delle professioni e arti sanitarie soggette a vigilanza.",
+        "performance" => " i Diagnosi, Cura e Riabilitazione rese alla persona nell'esercizio delle professioni e arti sanitarie soggette a vigilanza.",
         "promotions" => [1],
         "specializations" => [23],
     ],

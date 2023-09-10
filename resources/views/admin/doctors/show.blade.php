@@ -31,15 +31,15 @@
                             
                         </div>
 
-                        <div class="flex justyfy-around w-90">
+                        <div class="flex justify-center w-90">
                             @auth
                                 @if(auth()->user()->doctor) <!-- Verifica se l'utente è associato a un dottore -->
                                     <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
-                                        <button type="button" class="font-semibold my-second-btn">Edita Profilo Dottore</button>
+                                        <button type="button" class="font-semibold my-second-btn p-2">Edita Profilo Dottore</button>
                                     </a>
                                 @endif
                             @endauth
-                            <button class="font-semibold my-second-btn " onclick="window.location='{{ route('admin.doctors.payment', ['doctor' => $doctor]) }}'">Sponsorize</button>
+                            <button class="font-semibold my-second-btn p-2" onclick="window.location='{{ route('admin.doctors.payment', ['doctor' => $doctor]) }}'">Sponsorize</button>
                             <form
                                 action=""
                                 data-template="{{ route('admin.doctors.destroy', ['doctor' => '*****'], ['doctor'=> $doctor->id]) }}"
@@ -49,7 +49,7 @@
                                 >
                                 @csrf
                                 @method('delete')
-                                    <button class="font-semibold my-second-btn">Elimina Profilo Dottore</button>
+                                    <button class="font-semibold my-second-btn p-2">Elimina Profilo Dottore</button>
                             </form>
                             
                         </div>

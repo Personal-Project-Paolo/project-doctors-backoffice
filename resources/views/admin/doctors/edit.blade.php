@@ -128,18 +128,23 @@
                             <div class="invalid-feedback">
                                 @error('curriculum_vitae') {{ $message }} @enderror
                             </div>
+                            <button type="submit" class="btn-edit">Salva</button>
                         </div>
                         
                     </div>
 
                     
-                </fieldset>
+                </fieldset>  
+
 
                 
-            </form>
-            <div class="mb-4">
-                <button type="submit" class=" my-btn">Salva</button>
-            </div>
+
+             </form>
+       
+            
+               
+          
+       
         </div>
         
     </section>
@@ -150,6 +155,11 @@
 <style>
     .invalid-feedback{
         color:red;
+    }
+
+  
+    .btn-edit {
+        background-color: green;
     }
 
 </style>
