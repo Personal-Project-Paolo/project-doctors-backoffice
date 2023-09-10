@@ -2,8 +2,8 @@
     
     @section('contents')
 
-        <div class="py-6 px-4 sm:px-6 lg:px-8" style="background-color: #F9FAFB;">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6" style="background-color: #FFFFFF;">
+        <div class="py-6 px-4 sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8" style="background-color:  rgba(242, 249, 247, 0.8);;">
                 <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
                     <div class="col-span-3 md:col-span-2 lg:col-span-1  ">
 
@@ -31,15 +31,15 @@
                             
                         </div>
 
-                        <div class="p-6 w-90 flex justify-center">
+                        <div class="flex justyfy-around w-90">
                             @auth
                                 @if(auth()->user()->doctor) <!-- Verifica se l'utente è associato a un dottore -->
                                     <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
-                                        <button type="button" class=" px-8 py-3 font-semibold my-second-btn">Edita Profilo Dottore</button>
+                                        <button type="button" class="font-semibold my-second-btn">Edita Profilo Dottore</button>
                                     </a>
                                 @endif
                             @endauth
-                            <button class="px-8 py-3 font-semibold my-second-btn " onclick="window.location='{{ route('admin.doctors.payment', ['doctor' => $doctor]) }}'">Sponsorize</button>
+                            <button class="font-semibold my-second-btn " onclick="window.location='{{ route('admin.doctors.payment', ['doctor' => $doctor]) }}'">Sponsorize</button>
                             <form
                                 action=""
                                 data-template="{{ route('admin.doctors.destroy', ['doctor' => '*****'], ['doctor'=> $doctor->id]) }}"
@@ -49,7 +49,7 @@
                                 >
                                 @csrf
                                 @method('delete')
-                                    <button class=" px-8 py-3 font-semibold my-second-btn">Elimina Profilo Dottore</button>
+                                    <button class="font-semibold my-second-btn">Elimina Profilo Dottore</button>
                             </form>
                             
                         </div>
@@ -105,9 +105,6 @@
 
 
 <style>
-
-
-    
     .promotion{
         color: #7ce2e0;
         border: 2px solid #7ce2e0;
@@ -137,11 +134,8 @@
         border: 2px solid white;
         border-radius: .5rem;
         width: 100%;
-        margin-left: 1rem;
-        
-
+        margin-left: 2rem;
    }
-
    .my-btn:hover{
         color: #01bdcc;
         background-color: white;
@@ -151,10 +145,11 @@
 
    .my-second-btn{
         color: #01bdcc;
-        margin-left: 1rem;
+        background-color: white;
         border: 2px solid #01bdcc;
         border-radius: .5rem;
-        width: 90%;
+        margin-right: .5rem;
+      
    }
    
    .my-second-btn:hover{

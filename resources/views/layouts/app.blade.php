@@ -19,7 +19,7 @@
         <script src="https://js.braintreegateway.com/web/dropin/1.40.2/js/dropin.min.js"></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen my-container">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -41,3 +41,13 @@
     </body>
 </html>
 
+<style>
+    .my-container{
+        height: 100%;
+        background-image: url('https://us.123rf.com/450wm/wstockstudio/wstockstudio1707/wstockstudio170700042/81669810-stetoscopio-isolato-su-sfondo-nero-scrivania-di-medici-sterili-accessori-medici-sullo-sfondo-nero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+</style>
