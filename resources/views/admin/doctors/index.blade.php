@@ -2,9 +2,6 @@
     <div class="bg-container">
     @section ('contents')
 
-        
-    
-
         <div class="dark:text-gray-100">
         
             <div>
