@@ -31,7 +31,14 @@ Route::get('/', [GuestPageController::class, 'home'])->name('guest.home');
 
 
 Route::get('/dashboard', [AdminPageController::class, 'dashboard'])->name('dashboard');
+
+// Rotta per visualizzare l'elenco dei messaggi nel cestino
 Route::get('/admin/messages/trashed', [MessageController::class, 'trashed'])->name('admin.messages.trashed');
+
+// Rotta per eliminare un messaggio specifico
+Route::delete('/admin/messages/{message}', [MessageController::class, 'destroy'])->name('admin.messages.destroy');
+Route::delete('/admin/messages/trashed/{id}/delete', [MessageController::class, 'Harddelete'])->name('admin.messages.trashed.hard-delete');
+
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')

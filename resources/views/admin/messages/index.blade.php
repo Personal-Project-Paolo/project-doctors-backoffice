@@ -1,7 +1,14 @@
 <x-app-layout>
 
     
+
     @section('contents')
+
+        @if(session('trash_success'))
+            <div class="bg-red-600 text-white px-4 py-2 mt-4 rounded">
+                <p>Il messaggio è stato spostato nel cestino</p>
+            </div>
+        @endif
         <div class="bg">
             <div class="dark:text-gray-100 contain ">
                 <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Messaggi</h2>
@@ -40,16 +47,15 @@
                                                 </td>
                                                 <td>
                                                     <form
-                                                        action=""
-                                                        data-template="{{ route('admin.messages.trashed', ['doctor' => '*****'], ['messages'=> $message->id]) }}"
-                                                        method="POST"
-                                                        class="d-inline-block"
-                                                        id="confirm-delete"
-                                                        >
-                                                        @csrf
-                                                        @method('delete')
-                                                            <button class=" px-8 py-3 font-semibold my-second-btn">Elimina</button>
-                                                    </form>
+                                                    action="{{ route('admin.messages.destroy', ['message' => $message->id]) }}"
+                                                    method="POST"
+                                                    class="d-inline-block"
+                                                    id="confirm-delete"
+                                                >
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="mx-4 px-8 py-3 font-semibold my-second-btn bg-red-500 hover:bg-red-600 text-white rounded transition duration-300 ease-in-out transform hover:scale-105">Elimina</button>
+                                                </form>
                                                 </td>
                                             </tr>
                                 @endforeach

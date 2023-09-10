@@ -81,14 +81,41 @@ class MessageController extends Controller
     }
 
     
+    // public function destroy(Message $message)
+    // {
+    //     foreach ($message->doctors as $doctor){
+    //         $doctor->message_id =1;
+    //         $doctor->update();
+    //     }
+    //     $message->delete();
+    //     return redirect()->route('admin.messages.trashed')->with('delete_success', $message);
+    // }
+
     public function destroy(Message $message)
-    {
-        foreach ($message->doctors as $doctor){
-            $doctor->message_id =1;
-            $doctor->update();
+    {   
+        if (!$message) {
+        return redirect()->route('admin.messages.trashed')->with('error', 'Messaggio non trovato.');
         }
-        $message->delete();
-        return redirect()->route('admin.messages.trashed')->with('delete_success', $message);
+        // Verifica se il messaggio appartiene al dottore loggato
+        if ($message->doctor_id === Auth::user()->id) {
+            // Sposta il messaggio nel cestino (soft delete)
+            $message->delete();
+
+            // Aggiorna il campo "message_id" dei dottori associati al messaggio
+            if ($message->doctors) {
+                foreach ($message->doctors as $doctor) {
+                    $doctor->message_id = 1; // Assumi che 1 rappresenti il cestino
+                    $doctor->update();
+                }
+            }
+
+            return redirect()->route('admin.messages.index')->with('trash_success', $message);
+        } else {
+            // Il messaggio non appartiene al dottore loggato, gestisci l'errore qui
+            return redirect()->back()->with('error', 'Non sei autorizzato a eliminare questo messaggio.');
+        }
+       
+        
     }
 
     // Redirect to Trashed view
@@ -96,6 +123,30 @@ class MessageController extends Controller
     {
         $messages = Message::onlyTrashed()->paginate(4);
         return view('admin.messages.trashed', ['messages' => $messages]);
+    }
+
+
+
+    public function Harddelete($id)
+    {
+        // Trova il messaggio nel cestino
+        $message = Message::withTrashed()->find($id);
+
+        // Verifica se il messaggio esiste nel cestino
+        if (!$message) {
+            return redirect()->route('admin.messages.trashed')->with('error', 'Messaggio nel cestino non trovato.');
+        }
+
+        // Verifica se il messaggio appartiene al dottore loggato
+        if ($message->doctor_id === Auth::user()->id) {
+            // Elimina definitivamente il messaggio
+            $message->forceDelete();
+
+            return redirect()->route('admin.messages.trashed')->with('delete_success', 'Messaggio eliminato definitivamente.');
+        } else {
+            // Il messaggio nel cestino non appartiene al dottore loggato, gestisci l'errore qui
+            return redirect()->route('admin.messages.trashed')->with('error', 'Non sei autorizzato a eliminare definitivamente questo messaggio.');
+        }
     }
 
 }
