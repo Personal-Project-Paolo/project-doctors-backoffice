@@ -138,8 +138,6 @@
         border-radius: .5rem;
         width: 100%;
         margin-left: 1rem;
-        
-
    }
 
    .my-btn:hover{
