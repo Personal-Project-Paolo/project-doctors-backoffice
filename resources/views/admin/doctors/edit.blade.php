@@ -2,7 +2,7 @@
 
 @section('contents')
     <section class="m-6 p-6 dark:bg-gray-800 dark:text-gray-50">
-        <div class="p-5">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-8" style="background-color:  rgba(242, 249, 247, 0.8);;">
             <h1 style="font-weight:700; font-size:30px colour-text">Edit Profile Doctor</h1>
             <form 
             method="POST" 
