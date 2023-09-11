@@ -38,7 +38,7 @@ return[
     ],
     [
         // 10
-        "name" => "Medicina legale, del lavoro, igiene",
+        "name" => "Medicina legale",
     ],
     [
         // 11
