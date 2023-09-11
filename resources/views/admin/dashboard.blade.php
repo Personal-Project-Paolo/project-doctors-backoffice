@@ -1,50 +1,72 @@
 <x-app-layout>
     @section('contents')
-        <div class=" my-container flex flex-col justify-center items-center ">
-            {{-- <div class=" max-w-sm p-8 rounded-lg shadow card flex flex-col justify-around items-center ">
-                <h1 class="text-4xl font-semibold leading-normal">Benvenuto/a in BDoctors Dottor/Dottoressa <span
-                        class="text-6xl font-extrabold text-white-900 dark:text-white uppercase ">{{ Auth::user()->lastname }}</span>
-                </h1>
-                <div>
-                    <p class="mb-3 max-w-lg text-3xl font-semibold ">
-                        Nella tua <span class="uppercase text-4xl">dasboard</span> potrai:
-                    </p>
-                    <ul>
-                        <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i
-                                    class="fa-solid fa-user-doctor my-icon"></i> Gestire </span>facilmente il tuo profilo
-                        </li>
-                        <li class="mb-5"><span class="uppercase uppercase text-2xl "> <i
-                                    class="fa-solid fa-envelope-open-text   my-icon"></i> Comunicare </span>in maniera
-                            sicura con i tuoi pazienti</li>
-                        <li class=""><span class="uppercase uppercase text-2xl"> <i
-                                    class="fa-solid fa-people-group   my-icon"></i> Scegliere </span>il tuo piano di
-                            sponsorizzazionne</li>
-                    </ul>
-                </div>
-            </div> --}}
+        <div class=" my-container flex flex-col justify-center items-center mt-2 ">
             <section>
                 <div class="title">
                     <span>Ciao, {{ Auth::user()->name }}!</span>
 
                     <div>
-                        <span><a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a></span>
+                        
 
                         @auth
                             @unless (auth()->user()->doctor)
+                                <span><a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a></span>
                             @endunless
 
                             @if (auth()->user()->doctor)
+                                
+                            
+                                
                                 <!-- Verifica se l'utente è associato a un dottore -->
-                                <a href="{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor]) }}">
-                                    <span class="my-8 px-8">Visualizza il tuo profilo Dottore</span>
-                                </a>
+                                <ul>
+                                    <li class="mb-5"><span class="uppercase uppercase text-2xl ">
+                                        
+                                        <li class="mb-1"><span class="uppercase uppercase text-2xl "> <i
+                                            class="fa-solid fa-user-doctor my-icon"></i> Gestire facilmente il tuo profilo</span>
+                                        </li>
+                                        <a href="{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor]) }}">
+                                            <span class="mt-2 mb-2 px-8">
+                                                >> Il tuo profilo Dottore <<
+                                            </span>
+                                        </a>
+                                        <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
+                                            <span class="mt-2 mb-4 px-8"> 
+                                                >> Edita Profilo
+                                                Dottore << 
+                                            </span>
+                                        </a>
+                                        
+                                    </li>
+                                    <li class="mb-5">
+                                        <span class="uppercase uppercase text-2xl "> 
+                                            <i
+                                                class="fa-solid fa-envelope-open-text   my-icon">
+                                            </i> 
+                                            Comunicare in maniera sicura con i tuoi pazienti
+                                        </span>
+                                       
+                                    </li>
+                                    <li class="">
+                                        <span class="uppercase uppercase text-2xl"> 
+                                            <i
+                                                class="fa-solid fa-people-group  my-icon">
+                                            </i> 
+                                            Scegliere il tuo piano di
+                                                sponsorizzazione 
+                                        </span>
+                                    </li>
+                                </ul>
+                                
+                               
 
-                                <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
-                                    <span class="my-8 px-8">Edita Profilo
-                                        Dottore</span>
-                                </a>
+                                
                             @endif
                         @endauth
+
+                        <div>
+                            
+                           
+                        </div>
                     </div>
                 </div>
 

@@ -17,7 +17,13 @@ function closeTrashSuccessMessage() {
         @endif
         <div class="bg">
             <div class="dark:text-gray-100 contain ">
-                <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Messaggi</h2>
+                <div>
+                    <h2 class="mt-4 mb-4 text-2xl font-semibold leadi">Messaggi</h2>
+                    <button class="mb-4 px-8 py-2 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">
+                        <a class="button mx-1" href="{{ route('admin.messages.trashed') }}">Cestino</a>
+                    </button>
+                </div>
+                
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

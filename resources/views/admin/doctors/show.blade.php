@@ -12,8 +12,8 @@
                             class="h-96 w-full object-cover rounded-lg shadow-md">
                         </div>
 
-                        <div class="p-6  flex justify-center " >
-                            <div>
+                        <div class="p-6  flex justify-center">
+                            <div class="flex justify-center">
                                 <x-nav-link :href="route('admin.messages.index')" :active="request()->routeIs('messages')">
                                     <button type="button" class=" px-8 py-3 font-semibold my-btn ">
                                         <span >{{ __('Messages') }} </span>
@@ -23,7 +23,7 @@
         
                             <div>
                                 <x-nav-link :href="route('admin.reviews.index')" :active="request()->routeIs('reviews')">
-                                    <button type="button" class=" px-8 py-3 font-semibold my-btn"  >
+                                    <button type="button" class=" px-8 py-3 font-semibold my-btn">
                                          <span >{{ __('Reviews') }}</span>
                                     </button>
                                 </x-nav-link>    
@@ -71,10 +71,13 @@
                                     </span>
                                 @endif
                             </span>
-                            <div class="flex flex-col justify-center">
+                            <div class="mt-1 flex flex-col justify-center">
                                 <div>
                                     @foreach ($doctor->promotions as $promotion)
-                                       <p>Promozioni attive: <span class="text-sm md:text-base bg-500 text-white px-3 py-1 rounded-full mr-2 mb-2 promotion">{{$promotion->name}}</span></p>
+                                        <p class="mt-2">Promozioni attive: 
+                                            <span class="text-sm md:text-base bg-500 text-white px-3 py-1 rounded-full mr-2 mb-2 promotion">{{$promotion->name}}
+                                            </span>
+                                        </p>
                                     @endforeach
                                 </div>
                                 
@@ -82,10 +85,12 @@
                         </div>
                     </div>
                
-                    <div class="col-span-3 md:col-span-2 lg:col-span-1 ">
+                    <div class="mt-28 col-span-3 md:col-span-2 lg:col-span-1 ">
                         <div class="px-2 py-4 text-justify w-100 flex flex-col ">
                             @foreach ($doctor->user->specializations as $specialization)
-                               <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization ">{{$specialization->name}}</span>
+                               <span class="text-sm md:text-base text-center bg-500 text-white px-2 py-1 rounded-full mr-2 mb-2 specialization ">
+                                    {{$specialization->name}}
+                                </span>
                            @endforeach
                         </div>  
                     </div>
