@@ -6,16 +6,13 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+  
     public function up()
     {
         Schema::create('doctor_promotion', function (Blueprint $table) {
-            $table->integer('duration')->nullable()->default(30);
+            // $table->integer('duration')->nullable()->default(30);
             $table->date('subscription_date')->nullable();
+            $table->date('expiration_date')->nullable(); 
 
 
             $table->unsignedBigInteger('promotion_id');
@@ -27,11 +24,7 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('doctor_promotion');
