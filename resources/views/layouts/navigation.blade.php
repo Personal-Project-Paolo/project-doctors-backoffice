@@ -15,15 +15,15 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="subtitle-nav">
-                        {{ __('Benvenuto') }}
+                        {{ __('Home') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.dashboard.index')" :active="request()->routeIs('dashboard')" class="subtitle-nav">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
+                </div> --}}
 
                 {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('admin.doctors.index')" :active="request()->routeIs('doctors')" class="subtitle-nav">

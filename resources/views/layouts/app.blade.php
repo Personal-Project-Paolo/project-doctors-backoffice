@@ -63,7 +63,6 @@
         border: 2px solid white;
         border-radius: .5rem;
         width: 100%;
-        margin-left: 2rem;
     }
 
     .my-btn:hover {

@@ -8,11 +8,11 @@
 
     @section('contents')
         <div class="my-container">
-            <div class="btn-container">
+            <div class="text-center ifDelete">
                 @auth
                     @unless (auth()->user()->doctor)
-                        <button type="button" class="my-8 px-8 py-3 font-semibold border rounded dark:text-gray-100 my-btn">
-                            <a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a>
+                        <button type="button" class="font-semibold rounded dark:text-gray-100">
+                            <a class="ifDelete" href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a>
                         </button>
                     @endunless
 
@@ -53,5 +53,12 @@
         position: absolute;
         bottom: 30%;
         right: 15%;
+    }
+
+    .ifDelete {
+        padding-top: 10rem;
+        color: white;
+        font-size: 2.5rem;
+        text-decoration: underline;
     }
 </style>

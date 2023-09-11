@@ -1,6 +1,3 @@
-create.blade
-
-
 <x-app-layout>
     @section('contents')
         <section class="py-6 px-4 sm:px-6 lg:px-8">
@@ -127,11 +124,11 @@ create.blade
 
                         </div>
 
+                        <div class="mb-4">
+                            <button type="submit" class=" py-2 text-white bg-green-700 rounded my-btn">Invia</button>
+                        </div>
                     </fieldset>
 
-                    <div class="mb-4">
-                        <button type="submit" class="px-4 py-2 text-white bg-green-700 rounded my-btn">Invia</button>
-                    </div>
 
                 </form>
             </div>

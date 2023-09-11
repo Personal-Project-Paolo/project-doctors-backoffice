@@ -25,9 +25,29 @@
             <section>
                 <div class="title">
                     <span>Ciao, {{ Auth::user()->name }}!</span>
-                    <span><a href="{{ route('admin.doctors.create') }}">Vai al
-                            tuo profilo</a></span>
+
+                    <div>
+                        <span><a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a></span>
+
+                        @auth
+                            @unless (auth()->user()->doctor)
+                            @endunless
+
+                            @if (auth()->user()->doctor)
+                                <!-- Verifica se l'utente è associato a un dottore -->
+                                <a href="{{ route('admin.doctors.show', ['doctor' => auth()->user()->doctor]) }}">
+                                    <span class="my-8 px-8">Visualizza il tuo profilo Dottore</span>
+                                </a>
+
+                                <a href="{{ route('admin.doctors.edit', ['doctor' => auth()->user()->doctor]) }}">
+                                    <span class="my-8 px-8">Edita Profilo
+                                        Dottore</span>
+                                </a>
+                            @endif
+                        @endauth
+                    </div>
                 </div>
+
             </section>
         </div>
     @endsection
@@ -45,6 +65,7 @@
     a {
         color: inherit;
         text-decoration: inherit;
+
     }
 
     /* MAIN */
@@ -96,7 +117,7 @@
         color: #f7ca18;
     }
 
-    section .title span a::after {
+    /* section .title span a::after {
         content: "";
         height: 2px;
         background-color: #f7ca18;
@@ -105,7 +126,7 @@
         left: 0;
         width: 0;
         animation: linkAfter 0.5s 1s ease both;
-    }
+    } */
 
     @-moz-keyframes pop {
         0% {
