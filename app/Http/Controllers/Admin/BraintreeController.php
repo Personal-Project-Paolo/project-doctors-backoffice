@@ -64,9 +64,6 @@ class BraintreeController extends Controller
                 'expiration_date' => $expirationDate,
             ]);
 
-            
-            
-
             return to_route('admin.doctors.payment')->with('transition_success', $result);
         } else {
             return redirect()->route('admin.doctors.payment')->with('transition_error', $result->message);
