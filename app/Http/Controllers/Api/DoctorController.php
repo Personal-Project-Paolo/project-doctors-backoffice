@@ -12,7 +12,10 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors = Doctor::with('promotions', 'messages', 'reviews')->paginate(100);
+        $doctors = Doctor::with(['promotions' => function ($query) {
+            $query->withPivot('subscription_date', 'expiration_date'); 
+        }, 'messages', 'reviews'])->paginate(100);
+    
 
         return response()->json([
             'success' => true,

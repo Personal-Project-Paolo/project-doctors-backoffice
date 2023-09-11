@@ -21,7 +21,7 @@
                 @endif
         
         
-                <p>Card number to use: 4111111111111111</p>
+                {{-- <p>Card number to use: 4111111111111111</p> --}}
                 <form action="{{ route('admin.doctors.checkout', ['doctor' => $doctor]) }}" method="post" id="braintree-form">
                     @csrf
                     @method("POST")
@@ -30,15 +30,21 @@
                     
                     @foreach ($promotions as $item)
                         @if ($loop->first)
+                            <span class="my-2">Questa promozione dura <span class="font-extrabold">{{$item->duration}} ore</span></span>
+                            
                             <div class="flex items-center mb-4">
                                 <input id="default-radio-{{$item->id}}" type="radio" value="{{$item->id}}" name="promotion-plan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" checked> 
                                 <label for="default-radio-{{$item->id}}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{$item->type}} ({{$item->price}}$)</label>
                             </div>
+                            
                         @else
+                            <span class="my-2">Questa promozione dura <span class="font-extrabold">{{$item->duration}} ore</span></span>   
+                        
                             <div class="flex items-center mb-4">
                                 <input id="default-radio-{{$item->id}}" type="radio" value="{{$item->id}}" name="promotion-plan" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" > 
                                 <label for="default-radio-{{$item->id}}" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{$item->type}} ({{$item->price}}$)</label>
                             </div>
+                          
                         @endif
                     @endforeach
                     <div id="dropin-container"></div>

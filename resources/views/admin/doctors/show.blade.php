@@ -78,6 +78,7 @@
                                             <span class="text-sm md:text-base bg-500 text-white px-3 py-1 rounded-full mr-2 mb-2 promotion">{{$promotion->name}}
                                             </span>
                                         </p>
+                                        
                                     @endforeach
                                 </div>
                                 
