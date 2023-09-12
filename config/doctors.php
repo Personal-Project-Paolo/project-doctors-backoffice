@@ -38,7 +38,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Eric-Foreman.jpeg",
         "performance" => "",
-        "promotions" => [1],
+        "promotions" => [],
         "specializations" => [15, 19],
     ],
     [
@@ -48,7 +48,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Masters.jpeg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [15, 13],
     ],
     [
@@ -58,7 +58,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Robert-Chase.jpg",
         "performance" => "",
-        "promotions" => [1],
+        "promotions" => [],
         "specializations" => [13, 15, 20],
     ],
     [
@@ -68,7 +68,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Cameron.jpg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [15, 19],
     ],
     [
@@ -98,7 +98,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Kutner.jpg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [2],
     ],
     [
@@ -118,7 +118,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Christopher-Duncan-Turk.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [13, 1],
     ],
     [
@@ -128,7 +128,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Cox.jpg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [14, 6],
     ],
     [
@@ -138,7 +138,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Robert-Kelso.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [9, 16],
     ],
     [
@@ -158,7 +158,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Alzheimer.jpg",
         "performance" => "",
-        "promotions" => [1],
+        "promotions" => [],
         "specializations" => [13],
     ],
     [
@@ -168,7 +168,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Doug.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [22],
     ],
     [
@@ -178,7 +178,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Shulz.jpg",
         "performance" => " i Diagnosi, Cura e Riabilitazione rese alla persona nell'esercizio delle professioni e arti sanitarie soggette a vigilanza.",
-        "promotions" => [1],
+        "promotions" => [],
         "specializations" => [23],
     ],
     [
@@ -208,7 +208,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Izzie_Stevens.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [18],
     ],
     [
@@ -218,7 +218,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Shaun.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [13],
     ],
     [
@@ -228,7 +228,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Zampa.jpg",
         "performance" => "",
-        "promotions" => [1],
+        "promotions" => [],
         "specializations" => [14],
     ],
     [
@@ -238,7 +238,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Peter_Benton.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [13],
     ],
     [
@@ -248,7 +248,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Gio.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [9],
     ],
 
@@ -259,7 +259,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Sloan.jpg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [21],
     ],
 
@@ -270,7 +270,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Strange.jpg",
         "performance" => "",
-        "promotions" => [2],
+        "promotions" => [],
         "specializations" => [25],
     ],
 
@@ -281,7 +281,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/Patch_Adams.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [4],
     ],
 
@@ -292,7 +292,7 @@ return [
         "curriculum_vitae" => "",
         "image" => "Profile_IMG/dott_male.jpg",
         "performance" => "",
-        "promotions" => [3],
+        "promotions" => [],
         "specializations" => [4],
     ],
 
@@ -318,7 +318,7 @@ return [
         "specializations" => [8],
     ],
 
-    
+
     [
         "user_id" => 32,
         "name" => "Emmett",
