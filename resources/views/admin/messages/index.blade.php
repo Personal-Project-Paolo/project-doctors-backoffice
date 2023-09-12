@@ -28,42 +28,48 @@ function closeTrashSuccessMessage() {
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class=" colonna px-6 py-3">
                                     Data e Ora
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class=" colonna px-6 py-3">
                                     Email
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class=" colonna px-6 py-3">
                                     Testo
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class=" colonna px-6 py-3">
                                     Azioni
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <tr class=" bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                                 @foreach ($messages as $message)
                             <tr>
-                                <td class="px-6 py-4">
+                                <td class=" colonna px-6 py-4">
                                     <p>{{ $message->created_at }}</p>
 
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class=" colonna px-6 py-4">
                                     <p>{{ $message->email }}</p>
 
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class=" colonna px-6 py-4">
                                     <p>{{ $message->text }}</p>
                                 </td>
-                                <td>
+                                <td class="flex">
+                                    <div class="h-90">
+                                        <button class="mt-3 px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">
+                                            <a class="button mx-1" href="{{ route('admin.messages.show', ['message' => $message]) }}">Dettagli</a>
+                                        </button>
+                                    </div>
+                                    
                                     <form action="{{ route('admin.messages.destroy', ['message' => $message->id]) }}"
                                         method="POST" class="d-inline-block" id="confirm-delete">
                                         @csrf
                                         @method('DELETE')
                                         <button
-                                            class="mx-4 px-8 py-3 font-semibold my-second-btn bg-red-500 hover:bg-red-600 text-white rounded transition duration-300 ease-in-out transform hover:scale-105">Elimina</button>
+                                            class="mt-3 mx-2 px-8 py-3 font-semibold my-second-btn text-white rounded transition duration-300 ease-in-out transform hover:scale-105">Elimina</button>
                                     </form>
                                 </td>
                             </tr>
@@ -100,5 +106,11 @@ function closeTrashSuccessMessage() {
 
     h2 {
         color: #01bdcc;
+    }
+
+    @media (max-width:1000px){
+       .colonna{
+        witdh:50%
+       }
     }
 </style>
