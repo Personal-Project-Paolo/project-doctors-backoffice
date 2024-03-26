@@ -1,22 +1,16 @@
 <x-app-layout>
     @section('contents')
-        <div class=" my-container flex flex-col justify-center items-center mt-2 ">
-            <section>
-                <div class="title">
+        <div class=" my-container flex flex-col justify-center items-center">
+            <section class="rounded-lg">
+                <div class="title pt-28">
                     <span>Ciao, {{ Auth::user()->name }}!</span>
-
                     <div>
-                        
-
                         @auth
                             @unless (auth()->user()->doctor)
                                 <span><a href="{{ route('admin.doctors.create') }}">Crea il tuo profilo</a></span>
                             @endunless
 
                             @if (auth()->user()->doctor)
-                                
-                            
-                                
                                 <!-- Verifica se l'utente è associato a un dottore -->
                                 <ul>
                                     <li class="mb-5"><span class="uppercase uppercase text-2xl ">
@@ -56,20 +50,10 @@
                                         </span>
                                     </li>
                                 </ul>
-                                
-                               
-
-                                
                             @endif
                         @endauth
-
-                        <div>
-                            
-                           
-                        </div>
                     </div>
                 </div>
-
             </section>
         </div>
     @endsection
@@ -100,13 +84,11 @@
     section {
         background-color: rgba(0, 0, 0, 0.2);
         height: 70vh;
-
         display: flex;
-
     }
 
     section .title {
-        max-width: 60%;
+        max-width: 80%;
         width: 100%;
         align-self: center;
         transform: translateY(-50px);
@@ -115,7 +97,7 @@
 
     section .title span {
         display: inline-block;
-        font-size: 5vw;
+        font-size: 50px;
         color: #efefef;
         width: 100%;
         text-transform: uppercase;

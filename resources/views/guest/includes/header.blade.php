@@ -1,1 +1,0 @@
-Sono l'header del guest
